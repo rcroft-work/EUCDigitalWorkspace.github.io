@@ -1,0 +1,35 @@
+@import url(portal.css);
+
+.body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.main { grid-column: span 3; }
+.related-resources {
+    grid-column: 4;
+
+    border-top-color: var(--accent-colour);
+    border-top-width: 0.25em;
+    border-top-style: solid;
+
+    padding-left: 1em;
+    margin-left: 1.5em;
+}
+
+.related-resources h1 {
+    font-size: large;
+}
+
+.related-resources ul {
+    list-style: none outside none;
+    padding-left: 0;
+}
+.related-resources ul li {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: var(--line-colour) 1px solid;
+}
+.related-resources ul li:last-of-type {
+    padding-top: 0.5em;
+    border-bottom: none;
+}
