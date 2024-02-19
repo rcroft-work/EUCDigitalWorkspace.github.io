@@ -18,6 +18,8 @@
 
 .related-resources h1 {
     font-size: large;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 .related-resources ul {
