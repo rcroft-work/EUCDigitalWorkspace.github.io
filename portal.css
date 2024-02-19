@@ -7,13 +7,13 @@
 
  :root {
     /* Colours that don't change between light and dark modes. */
-   --accent-colour: rgb(98, 0, 234);
+   --accent-colour: #006990;
 
    /* Colours that do change between light and dark modes. */
-   --line-colour-light-mode: black;
-   --background-colour-light-mode: white;
-   --line-colour-dark-mode: white;
-   --background-colour-dark-mode: black;
+   --line-colour-light-mode: #101010;
+   --background-colour-light-mode: #f0f0f0;
+   --line-colour-dark-mode: #f0f0e0;
+   --background-colour-dark-mode: #202020;
    --field-colour-light-mode: rgb(224, 224, 224);
    --field-colour-dark-mode: rgb(112, 112, 112);
 
@@ -64,4 +64,63 @@ body {
     background-color: var(--background-colour);
 }
 
+a {
+    text-decoration: none;
+    color: var(--accent-colour);
+    border-radius: var(--border-radius);
+}
+a.download {
+    color: var(--line-colour-dark-mode);
+    background-color: var(--accent-colour);
+    padding: 0.2em 1em 0.2em 1em;
+}
 
+h1, h2 {
+    font-weight: normal;
+}
+
+.header {
+    border-bottom: var(--line-colour) 1px solid;
+    width: 100%;
+}
+.header p:nth-of-type(1) {
+    color: var(--background-colour);
+    background-color: var(--line-colour);
+    margin: 0;
+    padding: 1em;
+}
+
+.footer {
+    /* position: absolute;
+    background-color: var(--background-colour);
+    bottom: 0; */
+    margin-top: 2em;
+    border-top: var(--line-colour) 1px solid;
+    padding-top: 1em;
+    width: 100%;
+    
+    text-align: center;
+}
+
+h1:nth-of-type(1) {
+    border-bottom: var(--line-colour) 1px solid;
+    padding-bottom: 1em;
+}
+
+table {
+    border-spacing: 0;
+    width: 100%;
+    border: var(--line-colour) 1px solid;
+}
+table thead {
+    background-color: var(--accent-colour);
+    color: var(--line-colour-dark-mode);
+}
+table th, table td {
+    font-weight: normal;
+    text-align: left;
+    padding: 0.5em;
+}
+table tbody tr:hover {
+    background-color: var(--field-colour);
+}
