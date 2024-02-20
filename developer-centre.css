@@ -1,0 +1,52 @@
+@import url(portal.css);
+
+:root {
+   --verb-image-width: 268px;
+}
+
+/* Rules that don't change in response to viewport size. */
+.section {
+    display: grid;
+}
+
+.section > p {
+    /* TOTH span all columns https://stackoverflow.com/a/42240114 */
+    grid-column: 1 / -1;
+    font-size: x-large;
+}
+.section .verb {
+    grid-column: span 1;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.verb h1 {
+    border-bottom: none;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 0;
+}
+
+/* Rules that do change in response to viewport size. */
+.section {
+    grid-template-columns: repeat(3, 1fr);
+}
+.section .verb {
+    background-size: var(--verb-image-width);
+    padding-top: var(--verb-image-width);
+}
+
+/* The media queries should use a calc() and var() but that doesn't seem to be
+ * supported in media queries.
+ */
+@media (width <= 804px) { /* Three times the verb image width. */
+    .section {
+        grid-template-columns: 1fr;
+    }
+    @media (width <= 268px) { /* The verb image width */
+        .section .verb {
+            background-size: 90vw;
+            padding-top: 90vw;
+        }
+    }
+}
