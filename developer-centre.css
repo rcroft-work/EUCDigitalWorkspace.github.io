@@ -110,8 +110,9 @@
  * supported in media queries.
  */
 @media (width <= 804px) { /* Three times the verb image width. */
-    .section#overview { grid-template-columns: 1fr; }
-    .section#capabilities ul { grid-template-columns: 1fr; }
+    .section#overview, .section#capabilities ul, .section#approaches ul {
+        grid-template-columns: 1fr;
+    }
     @media (width <= 268px) { /* The verb image width */
         .section .verb {
             background-size: 90vw;
