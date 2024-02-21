@@ -39,6 +39,9 @@
 .section ul {
     list-style: none;
     display: grid;
+    column-gap: 1.5em;
+    row-gap: 1em;
+    padding-left: 0;
 }
 .section#capabilities li {
     padding-left: 3em;
@@ -65,7 +68,6 @@
 }
 .section#approaches li {
     background-color: var(--accent-colour);
-    margin: 1em;
     border-top: var(--background-colour) solid 4em;
     position: relative;
 }
