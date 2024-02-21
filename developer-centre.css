@@ -99,6 +99,22 @@
     top: -1.3em;
 }
 
+div.capabilities-page {
+    background-color: var(--field-colour);
+    padding: 1em;
+}
+div.capabilities-page ul {
+    list-style: none;
+    padding-left: 0;
+}
+div.capabilities-page ul li {
+    background-color: var(--background-colour);
+    padding: 1em 2em 1em 2em;
+}
+div.capabilities-page ul li > p:nth-of-type(1){
+    font-size: x-large;
+}
+
 /* Rules that do change in response to viewport size. */
 .section#overview { grid-template-columns: repeat(3, 1fr); }
 .section .verb {
