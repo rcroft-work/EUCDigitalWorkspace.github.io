@@ -21,6 +21,9 @@
    --line-colour: var(--line-colour-light-mode);
    --background-colour: var(--background-colour-light-mode);
    --field-colour: var(--field-colour-light-mode);
+   --line-colour-inverse: var(--line-colour-dark-mode);
+   --background-colour-inverse: var(--background-colour-dark-mode);
+   --field-colour-inverse: var(--field-colour-dark-mode);
 
    /* Shorthand for a border of current line colour. */
    --border: var(--line-colour) 1px solid;
@@ -48,7 +51,10 @@
        --line-colour: var(--line-colour-dark-mode);
        --background-colour: var(--background-colour-dark-mode);
        --field-colour: var(--field-colour-dark-mode);
-
+       --line-colour-inverse: var(--line-colour-light-mode);
+       --background-colour-inverse: var(--background-colour-light-mode);
+       --field-colour-inverse: var(--field-colour-light-mode);
+    
        /* Overrides for switching between border and fill depending on mode.
         */
        --light-mode-border: none;
