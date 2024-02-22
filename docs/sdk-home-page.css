@@ -2,12 +2,9 @@
 
 .body {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 3fr 1fr;
 }
-.main { grid-column: span 3; }
 .related-resources {
-    grid-column: 4;
-
     border-top-color: var(--accent-colour);
     border-top-width: 0.25em;
     border-top-style: solid;
