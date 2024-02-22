@@ -158,18 +158,7 @@ th.supported::before {
     color: lightgreen;
     font-size: 150%;
 }
-table.supported table {
-    width: inherit;
-}
-table.supported table td {
-    color: transparent;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 2em;
-    height: 2em;
-    padding: 0;
-}
+
 ul.other-capabilities {
     list-style: none;
     padding-left: 0;
@@ -244,7 +233,9 @@ div.list-page ul li.technical-approach > div > div p:nth-of-type(1) {
     flex: none;
     margin-left: 1em;
 }
-.app-type span[title="Public"], .app-type span[title="Private"] {
+.app-type span[title="Public"], .app-type span[title="Private"],
+.app-type span[title="Apple"], .app-type span[title="Android"]
+{
     background-size: contain;
     background-repeat: no-repeat;
     color: transparent;
@@ -257,6 +248,16 @@ div.list-page ul li.technical-approach > div > div p:nth-of-type(1) {
 @media (prefers-color-scheme: dark) {
     .app-type span[title="Public"] {background-image: url(globe_light.png);}
     .app-type span[title="Private"] {background-image: url(signpost_light.png);}
+}
+.app-type span[title="Apple"], .app-type span[title="Android"] {
+    width: 2em;
+    height: 2em;
+}
+.app-type span[title="Apple"] {
+    background-image: url(apple_logo_circle.png);
+}
+.app-type span[title="Android"] {
+    background-image: url(android_logo_circle.png);
 }
 
 /* Rules that do change in response to viewport size. */
