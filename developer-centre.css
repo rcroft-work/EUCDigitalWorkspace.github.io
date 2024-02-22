@@ -43,6 +43,17 @@
     row-gap: 1em;
     padding-left: 0;
 }
+
+.section#capabilities > div:nth-of-type(1) > h1 {
+    float: left;
+    margin-top: 0.5em;
+    margin-bottom: 0.25em;
+}
+.section#capabilities > div:nth-of-type(1) > a {
+    float: right;
+    margin-top: 1.5em;
+}
+
 .section#capabilities li {
     padding-left: 3em;
     padding-right: 0.5em;
@@ -115,6 +126,70 @@ div.capabilities-page ul li > p:nth-of-type(1){
     font-size: x-large;
 }
 
+div.capability-page div.overview {
+    display: grid;
+}
+
+table.supported, table.supported table {
+    border: none;
+}
+table.supported thead tr {
+    /* TOTH Bottom border effect with a box-shadow, to avoid border collapse
+     * limitations https://stackoverflow.com/a/58997526
+     */
+    box-shadow: 0px 1px var(--line-colour);
+}
+table.supported th {
+    background-color: var(--background-colour);
+    color: var(--line-colour);
+}
+th.supported::before {
+    content: '\25CF';
+    color: lightgreen;
+    font-size: 150%;
+}
+table.supported table {
+    width: inherit;
+}
+table.supported table td {
+    color: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 2em;
+    height: 2em;
+    padding: 0;
+}
+ul.other-capabilities {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+}
+ul.other-capabilities li {
+    position: relative;
+    padding: 0.5em;
+    border-left-width: 5.5em;
+    border-left-style: solid;
+    margin: 0.75em;
+    background-color: var(--field-colour);
+}
+ul.other-capabilities li:nth-child(3n + 1) {
+    border-left-color: darkgreen;
+}
+ul.other-capabilities li:nth-child(3n + 2) {
+    border-left-color: turquoise;
+}
+ul.other-capabilities li:nth-child(3n) {
+    border-left-color: darkblue;
+}
+ul.other-capabilities li::before {
+    content: '\2699';
+    font-size: 500%;
+    position: absolute;
+    left: -0.85em;
+    top: 0;
+}
+
 /* Rules that do change in response to viewport size. */
 .section#overview { grid-template-columns: repeat(3, 1fr); }
 .section .verb {
@@ -124,13 +199,41 @@ div.capabilities-page ul li > p:nth-of-type(1){
 .section#capabilities ul, .section#approaches ul {
     grid-template-columns: 1fr 1fr;
 }
+div.capability-page div.overview {
+    grid-template-columns: repeat(6, 1fr);
+}
+div.capability-page div.overview > * {
+    grid-column: span 4;
+}
+div.capability-page div.overview div.supported {
+    grid-column: 5 / span 2;
+    grid-row: 1 / span 3;
+}
+ul.other-capabilities {
+    grid-template-columns: 1fr 1fr;
+}
 /* The media queries should use a calc() and var() but that doesn't seem to be
  * supported in media queries.
  */
 @media (width <= 804px) { /* Three times the verb image width. */
-    .section#overview, .section#capabilities ul, .section#approaches ul {
+    .section#overview,
+    .section#capabilities ul,
+    .section#approaches ul,
+    ul.other-capabilities,
+    div.capability-page div.overview
+    {
         grid-template-columns: 1fr;
     }
+
+    div.capability-page div.overview > * {
+        grid-column: span 6;
+    }
+    div.capability-page div.overview div.supported {
+        grid-column: span 6;
+        grid-row: auto;
+    }
+    
+
     @media (width <= 268px) { /* The verb image width */
         .section .verb {
             background-size: 90vw;
