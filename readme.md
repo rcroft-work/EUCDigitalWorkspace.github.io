@@ -48,3 +48,6 @@ repositories that make up the portal as siblings, like this.
     |
     +--- ws1-sdk-uem-android/
 
+# Notes
+All navigation links must have exactly one terminating slash /. Otherwise
+relative paths for resources and navigation won't work.
