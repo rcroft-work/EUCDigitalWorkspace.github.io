@@ -36,7 +36,7 @@
     text-align: center;
 }
 
-.section ul {
+.section ul, div.capabilities-page ul {
     list-style: none;
     display: grid;
     column-gap: 1.5em;
@@ -114,16 +114,25 @@ div.capabilities-page {
     background-color: var(--field-colour);
     padding: 1em;
 }
-div.capabilities-page ul {
+/* div.capabilities-page ul {
     list-style: none;
     padding-left: 0;
-}
+    display: grid;
+    column-gap: ;
+} */
 div.capabilities-page ul li {
     background-color: var(--background-colour);
     padding: 1em 2em 1em 2em;
 }
-div.capabilities-page ul li > p:nth-of-type(1){
+div.capabilities-page ul li > p:nth-of-type(1) {
     font-size: x-large;
+}
+div.capabilities-page ul li > a {
+    font-size: large;
+}
+div.capabilities-page ul li > p > a::after, ul.other-capabilities a::after {
+    content: ' \00BB';
+    font-size: 150%;
 }
 
 div.capability-page div.overview {
@@ -196,7 +205,7 @@ ul.other-capabilities li::before {
     background-size: var(--verb-image-width);
     padding-top: var(--verb-image-width);
 }
-.section#capabilities ul, .section#approaches ul {
+.section#capabilities ul, .section#approaches ul, div.capabilities-page ul {
     grid-template-columns: 1fr 1fr;
 }
 div.capability-page div.overview {
@@ -219,6 +228,7 @@ ul.other-capabilities {
     .section#overview,
     .section#capabilities ul,
     .section#approaches ul,
+    div.capabilities-page ul,
     ul.other-capabilities,
     div.capability-page div.overview
     {
