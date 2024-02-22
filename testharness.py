@@ -45,7 +45,9 @@ class Handler(SimpleHTTPRequestHandler):
         resourcePath = None
         root = Path.cwd()
         self.log_message("%s", f'root"{root}"')
-        for prefix in (suffix, referrer + suffix):
+        for prefix in (
+            (suffix, ) if referrer is None else (suffix, referrer + suffix)
+        ):
             if len(prefix) == 0:
                 # Request for /
                 repository = Path(root, "EUCDigitalWorkspace.github.io")
