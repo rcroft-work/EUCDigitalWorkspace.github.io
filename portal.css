@@ -83,6 +83,7 @@ a.download {
 
 h1, h2 {
     font-weight: normal;
+    padding-bottom: 0.5em;
 }
 
 .header {
