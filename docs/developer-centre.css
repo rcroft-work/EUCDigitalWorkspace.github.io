@@ -132,8 +132,12 @@ ul.other-capabilities a::after,
     font-size: 150%;
 }
 
-div.capability-page div.overview {
+.technical-approach,
+.technical-approach > div:nth-of-type(2),
+div.capability-page div.overview
+{
     display: grid;
+    gap: 1em;
 }
 
 table.supported, table.supported table {
@@ -196,10 +200,6 @@ ul.other-capabilities li::before {
     top: 0;
 }
 
-.technical-approach, .technical-approach > div:nth-of-type(2) {
-    display: grid;
-    gap: 1em;
-}
 div.list-page ul li.technical-approach > div > div p:nth-of-type(1) {
     text-transform: uppercase;
     font-size: medium;
@@ -278,14 +278,7 @@ div.list-page#technical-approaches ul {
 }
 
 div.capability-page div.overview {
-    grid-template-columns: repeat(6, 1fr);
-}
-div.capability-page div.overview > * {
-    grid-column: span 4;
-}
-div.capability-page div.overview div.supported {
-    grid-column: 5 / span 2;
-    grid-row: 1 / span 3;
+    grid-template-columns: 2fr 1fr;
 }
 ul.other-capabilities {
     grid-template-columns: 1fr 1fr;
@@ -304,14 +297,6 @@ ul.other-capabilities {
     .technical-approach > div:nth-of-type(2) /* The div is itself a grid. */
     {
         grid-template-columns: 1fr;
-    }
-
-    div.capability-page div.overview > * {
-        grid-column: span 6;
-    }
-    div.capability-page div.overview div.supported {
-        grid-column: span 6;
-        grid-row: auto;
     }
     
     @media (width <= 268px) { /* The verb image width */
