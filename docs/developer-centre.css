@@ -36,7 +36,7 @@
     text-align: center;
 }
 
-.section ul, div.capabilities-page ul {
+.section ul, div.list-page ul {
     list-style: none;
     display: grid;
     column-gap: 1.5em;
@@ -110,27 +110,24 @@
     top: -1.3em;
 }
 
-div.capabilities-page {
+div.list-page {
     background-color: var(--field-colour);
     padding: 1em;
 }
-/* div.capabilities-page ul {
-    list-style: none;
-    padding-left: 0;
-    display: grid;
-    column-gap: ;
-} */
-div.capabilities-page ul li {
+div.list-page ul li {
     background-color: var(--background-colour);
     padding: 1em 2em 1em 2em;
 }
-div.capabilities-page ul li > p:nth-of-type(1) {
+div.list-page ul li p:nth-of-type(1) {
     font-size: x-large;
 }
-div.capabilities-page ul li > a {
+div.list-page ul li > a {
     font-size: large;
 }
-div.capabilities-page ul li > p > a::after, ul.other-capabilities a::after {
+div.list-page ul li > p > a::after,
+ul.other-capabilities a::after,
+.section#approaches a::after
+{
     content: ' \00BB';
     font-size: 150%;
 }
@@ -199,15 +196,87 @@ ul.other-capabilities li::before {
     top: 0;
 }
 
+.technical-approach, .technical-approach > div:nth-of-type(2) {
+    display: grid;
+    gap: 1em;
+}
+div.list-page ul li.technical-approach > div > div p:nth-of-type(1) {
+    text-transform: uppercase;
+    font-size: medium;
+    width: 100%;
+    border-bottom: var(--border);
+    padding-bottom: 0.5em;
+}
+.development-effort {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    font-size: 80%;
+}
+.development-effort span {
+    flex: auto;
+    border-radius: 0.5em;
+    height: 1em;
+}
+.development-effort span[title="55%"] {
+    background: linear-gradient(
+        to right, lightgreen 55%, var(--field-colour) 55%
+    );
+    overflow: hidden;
+    color: transparent
+}
+.development-effort span[title="15%"] {
+    background: linear-gradient(
+        to right, lightgreen 15%, var(--field-colour) 15%
+    );
+    overflow: hidden;
+    color: transparent
+}
+.development-effort::before {
+    content: 'LOW';
+    color: var(--line-colour);
+    flex: none;
+    margin-right: 1em;
+}
+.development-effort::after {
+    content: 'HIGH';
+    color: var(--line-colour);
+    flex: none;
+    margin-left: 1em;
+}
+.app-type span[title="Public"], .app-type span[title="Private"] {
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: transparent;
+    overflow: hidden;
+    display: inline-block;
+    width: 1em;
+}
+.app-type span[title="Public"] {background-image: url(globe_dark.png);}
+.app-type span[title="Private"] {background-image: url(signpost_dark.png);}
+@media (prefers-color-scheme: dark) {
+    .app-type span[title="Public"] {background-image: url(globe_light.png);}
+    .app-type span[title="Private"] {background-image: url(signpost_light.png);}
+}
+
 /* Rules that do change in response to viewport size. */
 .section#overview { grid-template-columns: repeat(3, 1fr); }
 .section .verb {
     background-size: var(--verb-image-width);
     padding-top: var(--verb-image-width);
 }
-.section#capabilities ul, .section#approaches ul, div.capabilities-page ul {
+.section#capabilities ul,
+.section#approaches ul,
+div.list-page ul,
+.technical-approach,
+.technical-approach > div:nth-of-type(2) /* The div is itself a grid. */
+{
     grid-template-columns: 1fr 1fr;
 }
+div.list-page#technical-approaches ul {
+    grid-template-columns: 1fr;
+}
+
 div.capability-page div.overview {
     grid-template-columns: repeat(6, 1fr);
 }
@@ -228,9 +297,11 @@ ul.other-capabilities {
     .section#overview,
     .section#capabilities ul,
     .section#approaches ul,
-    div.capabilities-page ul,
+    div.list-page ul,
     ul.other-capabilities,
-    div.capability-page div.overview
+    div.capability-page div.overview,
+    .technical-approach,
+    .technical-approach > div:nth-of-type(2) /* The div is itself a grid. */
     {
         grid-template-columns: 1fr;
     }
@@ -243,7 +314,6 @@ ul.other-capabilities {
         grid-row: auto;
     }
     
-
     @media (width <= 268px) { /* The verb image width */
         .section .verb {
             background-size: 90vw;
