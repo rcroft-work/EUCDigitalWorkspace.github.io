@@ -28,9 +28,9 @@ This repository also has these files.
         cd /wherever/you/cloned/EUCDigitalWorkspace.github.io
         python3 ./testharness.py
     
-    Then open [localhost:8001](localhost:8001) in your browser. This facilitates
-    work on the PoC. You can edit the files locally and see the results without
-    having to push to GitHub.
+    Then open [localhost:8001](http://localhost:8001) in your browser. This
+    facilitates work on the PoC. You can edit the files locally and see the
+    results without having to push to GitHub.
 
 -   A workspace declaration for use with VSCode or VSCodium,
     [here.code-workspace](here.code-workspace).
