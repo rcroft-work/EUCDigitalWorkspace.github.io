@@ -6,7 +6,8 @@
         {"path": ".", "name": "Org GitHub Pages"},
         {"path": "../.github", "name": "Dot GitHub"},
         {"path": "../ws1-sdk-uem-android", "name": "UEM SDK Android"},
-        {"path": "../ws1-dev-centre", "name": "WS1 Dev Centre"}
+        {"path": "../ws1-dev-centre", "name": "WS1 Dev Centre"},
+        {"path": "../ws1-intel-dev-centre", "name": "WS1 Intel Dev Centre"}
     ],
     "settings": {
         // Variable names are documented in the VSCod[e|ium] Settings.  
