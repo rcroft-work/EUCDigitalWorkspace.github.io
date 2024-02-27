@@ -53,6 +53,7 @@ class Handler(SimpleHTTPRequestHandler):
                 repository = Path(root, "EUCDigitalWorkspace.github.io")
             else:
                 repository = Path(root, prefix[0])
+                self.log_message("%s", f"prefix[0]{prefix[0]}")
                 if repository.is_dir():
                     prefix = prefix[1:]
                 else:
