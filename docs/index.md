@@ -1,7 +1,7 @@
 ---
 title: EUC Developer
 draft: false
-date: 2022-01-31
+date: 2024-03-01
 authors:
   - grumpydumpty
 hide:
