@@ -1,6 +1,6 @@
 # Project Information
 site_name: EUC Developer Portal
-site_url: https://eucdigitalworkspace.github.io
+site_url: https://rcroft-work.github.io/EUCDigitalWorkspace.github.io
 site_author: Richard Croft
 site_description: Overview of various Docker images for CommonPool.
 docs_dir: docs
@@ -8,7 +8,7 @@ site_dir: .site
 use_directory_urls: true
 
 # Repository
-repo_url: https://github.com/eucdigitalworkspace/eucdigitalworkspace.github.io
+repo_url: https://github.com/rcroft-work/eucdigitalworkspace.github.io
 edit_uri: edit/main/docs/
 
 # site_name: !!python/object/apply:os.getenv ["CI_PROJECT_PATH"]  
@@ -90,7 +90,7 @@ extra:
     provider: mike
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/eucdigitalworkspace
+      link: https://github.com/rcroft-work
     - icon: fontawesome/brands/x-twitter
       link: https://twitter.com/VMware
     - icon: fontawesome/brands/youtube
@@ -104,9 +104,9 @@ extra:
     - icon: fontawesome/brands/docker
       link: https://hub.docker.com/_/photon
     - icon: fontawesome/brands/gitlab
-      link: https://github.com/eucdigitalworkspace
+      link: https://github.com/rcroft-work
     - icon: fontawesome/brands/mastodon
-      link: https://github.com/eucdigitalworkspace
+      link: https://github.com/rcroft-work
     - icon: fontawesome/brands/slack
       link: https://slack.com/vmware
     - icon: fontawesome/brands/discord
