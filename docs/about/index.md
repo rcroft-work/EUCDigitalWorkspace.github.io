@@ -21,6 +21,8 @@ Companies, such as Microsoft and GitLab, have migrated to a documentation-as-cod
 
 This document proposes we consider adopting a documentation-as-code approach for our public facing documentation, especially the Developer Portal. Considering, EUC is migrating to GitHub for its Source code management (SCM), we propose using GitHub's Documentation-as-Code offering called GitHub Pages.
 
+A rough proof-of-concept has been created using GitHub, GitHub Pages, and MkDocs - it is available here: [EUC Developer Portal PoC](https://rcroft-work.github.io/EUCDigitalWorkspace.github.io/)
+
 ??? Info "Teams using Docs-as-Code approach"
 
     A number of VMware teams have been using this approach for the public documentation - see [Appendix A](#appendix-a) for examples.

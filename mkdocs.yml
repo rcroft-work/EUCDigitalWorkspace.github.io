@@ -9,7 +9,7 @@ use_directory_urls: true
 
 # Repository
 repo_url: https://github.com/rcroft-work/eucdigitalworkspace.github.io
-edit_uri: edit/main/docs/
+edit_uri: edit/docs/docs/
 
 # site_name: !!python/object/apply:os.getenv ["CI_PROJECT_PATH"]  
 # repo_url: !!python/object/apply:os.getenv ["CI_PROJECT_URL"]
