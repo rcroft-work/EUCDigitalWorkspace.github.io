@@ -152,21 +152,21 @@ In the above example:
 
 This allows for Corporate Sales and Marketing team to set the overall messaging/branding (incl. styles, fonts, colours, etc) and the product-based teams inherit from corporate or, if the need arises, to override with their own messaging/branding.
 
-### info
+??? info
 
-As an aside, GitHub supports are very flat hierarchy for Git repositories, namely `github.com/<org/team/user>/<repository>` where `<org/team/user>` is the organisation, team, or user name and `<repository>` is the name of the Git repository. 
+    As an aside, GitHub supports are very flat hierarchy for Git repositories, namely `github.com/<org/team/user>/<repository>` where `<org/team/user>` is the organisation, team, or user name and `<repository>` is the name of the Git repository. 
 
-Some systems, like GitLab, support the concept of groups and sub-groups which would allow for a direct one-to-one mapping.
-e.g.
+    Some systems, like GitLab, support the concept of groups and sub-groups which would allow for a direct one-to-one mapping.
+    e.g.
 
-```mermaid
-graph TD
-    B(gitlab.com/euc/products)
-    B --> F(gitlab.com/euc/products/UEM)
-    B --> G(gitlab.com/euc/products/Horizon)
-    B --> H(gitlab.com/euc/products/WorkspaceONE)
-    B --> I(. . .)
-```
+    ```mermaid
+    graph TD
+        B(gitlab.com/euc/products)
+        B --> F(gitlab.com/euc/products/UEM)
+        B --> G(gitlab.com/euc/products/Horizon)
+        B --> H(gitlab.com/euc/products/WorkspaceONE)
+        B --> I(. . .)
+    ```
 
 ### Developer-specific Documentation
 
@@ -395,16 +395,3 @@ graph TD
     M --> AB(Workspace ONE)
     M --> AC(. . .)
 ```
-
-## Appendix Z
-
-My username/organisations:
-
-- [vmware](https://github.com/vwmare)
-- [vmware](https://github.com/vwmare-samples)
-- [tanzu](https://github.com/tanzu)
-- [ws1-labs](https://github.com/ws1-labs)
-- [euc-eng](https://github.com/orgs/euc-eng/teams)
-- [rcroft_euc](https://github.com/rcroft_euc)
-- [rcroft-work](https://github.com/rcroft-work)
-- [grumpydumpty](https://github.com/grumpydumpty)
