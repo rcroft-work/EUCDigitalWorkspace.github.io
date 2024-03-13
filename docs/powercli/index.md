@@ -6,8 +6,27 @@ authors:
   - grumpydumpty
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec maximus ex. Sed consequat, nulla quis malesuada dapibus, elit metus vehicula erat, ut egestas tellus eros at risus. In hac habitasse platea dictumst. Phasellus id lacus pulvinar erat consequat pretium. Morbi malesuada arcu mauris Nam vel justo sem. Nam placerat purus non varius luctus. Integer pretium leo in sem rhoncus, quis gravida orci mollis. Proin id aliquam est. Vivamus in nunc ac metus tristique pellentesque. Suspendisse viverra urna in accumsan aliquet.
+<div style="display: block; margin-left: auto; margin-right: auto; width: 50%">
+    <img src="https://developer.vmware.com/portal-assets/powercli-assets/vmw-ico-powercli-vmc-rgb_16px.svg"></img>
+</div>
 
-Donec volutpat, elit ac volutpat laoreet, turpis dolor semper nibh, et dictum massa ex pulvinar elit. Curabitur commodo sit amet dolor sed mattis. Etiam tempor odio eu nisi gravida cursus. Maecenas ante enim, fermentum sit amet molestie nec, mollis ac libero. Vivamus sagittis suscipit eros ut luctus.
+## VMware PowerCLI
 
-Nunc vehicula sagittis condimentum. Cras facilisis bibendum lorem et feugiat. In auctor accumsan ligula, at consectetur erat commodo quis. Morbi ac nunc pharetra, pellentesque risus in, consectetur urna. Nulla id enim facilisis arcu tincidunt pulvinar. Vestibulum laoreet risus scelerisque porta congue. In velit purus, dictum quis neque nec, molestie viverra risus. Nam pellentesque tellus id elit ultricies, vel finibus erat cursus.
+PowerCLI is the tool millions of customers around the world use to manage and automate their VMware environments. Discover what you can achieve with PowerCLI today.
+
+## PowerCLI / PowerShell Modules
+
+PowerShell Module for VMware Validated Solutions  
+[:material-powershell:](https://www.powershellgallery.com/packages/PowerValidatedSolutions)  [:fontawesome-brands-github:](https://github.com/vmware/power-validated-solutions-for-cloud-foundation)  [:fontawesome-solid-book:](https://vmware.github.io/power-validated-solutions-for-cloud-foundation)
+
+PowerShell Module for VMware Cloud Foundation   
+[:material-powershell:](https://www.powershellgallery.com/packages/PowerVCF)  [:fontawesome-brands-github:](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation) [:fontawesome-solid-book:](https://vmware.github.io/powershell-module-for-vmware-cloud-foundation)
+
+PowerShell Module for VMware Cloud Foundation Reporting  
+[:material-powershell:](https://www.powershellgallery.com/packages/VMware.CloudFoundation.Reporting)  [:fontawesome-brands-github:](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation-reporting) [:fontawesome-solid-book:](https://vmware.github.io/powershell-module-for-vmware-cloud-foundation-reporting)
+
+PowerShell Module for VMware Cloud Foundation Password Management  
+[:material-powershell:](https://www.powershellgallery.com/packages/VMware.CloudFoundation.PasswordManagement)  [:fontawesome-brands-github:](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation-password-management) [:fontawesome-solid-book:](https://vmware.github.io/powershell-module-for-vmware-cloud-foundation-password-management)
+
+PowerShell Module for VMware Cloud Foundation Certificate Management  
+[:material-powershell:](https://www.powershellgallery.com/packages/VMware.CloudFoundation.CertificateManagement)  [:fontawesome-brands-github:](https://github.com/vmware/powershell-module-for-vmware-cloud-foundation-certificate-management) [:fontawesome-solid-book:](https://vmware.github.io/powershell-module-for-vmware-cloud-foundation-certificate-management)
