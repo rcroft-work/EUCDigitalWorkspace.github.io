@@ -1,0 +1,3021 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Overview of various Docker images for CommonPool." name="description"/>
+<meta content="Richard Croft" name="author"/>
+<link href="https://rcroft-work.github.io/EUCDigitalWorkspace.github.io/api/api-guidelines/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../api-versioning/" rel="next"/>
+<link href="../../favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-9.5.19" name="generator"/>
+<title>VMware REST API Standard - EUC Developer Portal</title>
+<link href="../../assets/stylesheets/main.66ac8b77.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../css/timeago.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/spanable.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#vmware-rest-api-standard-practices">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="EUC Developer Portal" class="md-header__button md-logo" data-md-component="logo" href="../.." title="EUC Developer Portal">
+<img alt="logo" src="../../assets/images/icon-white.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            EUC Developer Portal
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              VMware REST API Standard
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Dark Theme" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Dark Theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+<input aria-label="Light Theme" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Light Theme">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+</form>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/rcroft-work/eucdigitalworkspace.github.io" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+          
+  
+    
+  
+  Home
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../products/">
+          
+  
+    
+  
+  Products
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../architecture/">
+          
+  
+    
+  
+  Architecture
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
+          
+  
+    
+  
+  APIs
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../powercli/">
+          
+  
+    
+  
+  PowerCLI
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../samples/">
+        
+  
+    
+  
+  Code Samples
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../sdk/">
+        
+  
+    
+  
+  SDKs
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../tools/">
+        
+  
+    
+  
+  Tools
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../about/">
+        
+  
+    
+  
+  About
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="EUC Developer Portal" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="EUC Developer Portal">
+<img alt="logo" src="../../assets/images/icon-white.svg"/>
+</a>
+    EUC Developer Portal
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/rcroft-work/eucdigitalworkspace.github.io" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+            Home
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../products/">
+<span class="md-ellipsis">
+    Products
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Products
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../architecture/">
+<span class="md-ellipsis">
+    Architecture
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/workspaceone/">
+<span class="md-ellipsis">
+    Workspace ONE
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/access/">
+<span class="md-ellipsis">
+    WS1 Access
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/assist/">
+<span class="md-ellipsis">
+    WS1 Assist
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/intelligence/">
+<span class="md-ellipsis">
+    WS1 Intelligence
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/deem/">
+<span class="md-ellipsis">
+    WS1 DEEM
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/uem/">
+<span class="md-ellipsis">
+    WS1 UEM
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/horizon/">
+<span class="md-ellipsis">
+    Horizon
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/appvolumes/">
+<span class="md-ellipsis">
+    AppVolumes
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    APIs
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            APIs
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    API Guideline
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    API Guideline
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiding-principles">
+<span class="md-ellipsis">
+      Guiding Principles
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typographical-conventions">
+<span class="md-ellipsis">
+      Typographical conventions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#related-work">
+<span class="md-ellipsis">
+      Related Work
+    </span>
+</a>
+<nav aria-label="Related Work" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3rd-party">
+<span class="md-ellipsis">
+      3rd party
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request-and-response-types">
+<span class="md-ellipsis">
+      Request and Response Types
+    </span>
+</a>
+<nav aria-label="Request and Response Types" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#security-requirements">
+<span class="md-ellipsis">
+      Security requirements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#design-for-robust-operation-in-distributed-systems">
+<span class="md-ellipsis">
+      Design for robust operation in distributed systems
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-constructs">
+<span class="md-ellipsis">
+      Basic Constructs
+    </span>
+</a>
+<nav aria-label="Basic Constructs" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-types">
+<span class="md-ellipsis">
+      Data Types
+    </span>
+</a>
+<nav aria-label="Data Types" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#primitive-types">
+<span class="md-ellipsis">
+      Primitive types
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#objects">
+<span class="md-ellipsis">
+      Objects
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#naming-conventions">
+<span class="md-ellipsis">
+      Naming Conventions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uri-structure">
+<span class="md-ellipsis">
+      URI Structure
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hyperlinks">
+<span class="md-ellipsis">
+      Hyperlinks
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#http-verbs">
+<span class="md-ellipsis">
+      HTTP Verbs
+    </span>
+</a>
+<nav aria-label="HTTP Verbs" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#get">
+<span class="md-ellipsis">
+      GET
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#patch">
+<span class="md-ellipsis">
+      PATCH
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#put">
+<span class="md-ellipsis">
+      PUT
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#delete">
+<span class="md-ellipsis">
+      DELETE
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#post-create">
+<span class="md-ellipsis">
+      POST (create)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#post-non-crud-operations">
+<span class="md-ellipsis">
+      POST (non-CRUD operations)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-patterns">
+<span class="md-ellipsis">
+      API Patterns
+    </span>
+</a>
+<nav aria-label="API Patterns" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#long-running-operations">
+<span class="md-ellipsis">
+      Long-running operations
+    </span>
+</a>
+<nav aria-label="Long-running operations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resource-state">
+<span class="md-ellipsis">
+      Resource State
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tasks">
+<span class="md-ellipsis">
+      Tasks
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-transfers">
+<span class="md-ellipsis">
+      File Transfers
+    </span>
+</a>
+<nav aria-label="File Transfers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-or-data-download">
+<span class="md-ellipsis">
+      File or Data Download
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-or-data-upload">
+<span class="md-ellipsis">
+      File or Data Upload
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-errors">
+<span class="md-ellipsis">
+      API Errors
+    </span>
+</a>
+<nav aria-label="API Errors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#error-response-codes">
+<span class="md-ellipsis">
+      Error Response Codes
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-documentation">
+<span class="md-ellipsis">
+      API Documentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-evolution">
+<span class="md-ellipsis">
+      API Evolution
+    </span>
+</a>
+<nav aria-label="API Evolution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dealing-with-incompatible-changes">
+<span class="md-ellipsis">
+      Dealing with incompatible changes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-versioning">
+<span class="md-ellipsis">
+      API Versioning
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-breaking-changes-and-deprecation">
+<span class="md-ellipsis">
+      API Breaking Changes and Deprecation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#appendix-a-reviewer-committee">
+<span class="md-ellipsis">
+      Appendix A - Reviewer Committee
+    </span>
+</a>
+<nav aria-label="Appendix A - Reviewer Committee" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#v-10">
+<span class="md-ellipsis">
+      v 1.0
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#v-20">
+<span class="md-ellipsis">
+      v 2.0
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#appendix-b-additional-examples">
+<span class="md-ellipsis">
+      Appendix B - Additional Examples
+    </span>
+</a>
+<nav aria-label="Appendix B - Additional Examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partial-update-using-list-of-instructions">
+<span class="md-ellipsis">
+      Partial Update Using List of Instructions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-xenon-response">
+<span class="md-ellipsis">
+      Example Xenon Response
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-openstack-nova-server-provisioning">
+<span class="md-ellipsis">
+      Example OpenStack Nova Server provisioning
+    </span>
+</a>
+<nav aria-label="Example OpenStack Nova Server provisioning" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-server-request">
+<span class="md-ellipsis">
+      CREATE SERVER REQUEST
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#poll-server-under-creation">
+<span class="md-ellipsis">
+      POLL SERVER UNDER CREATION
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#poll-server-after-provisioning-is-completed">
+<span class="md-ellipsis">
+      POLL SERVER AFTER PROVISIONING IS COMPLETED
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api-versioning/">
+<span class="md-ellipsis">
+    API Versioning
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appvolumes/">
+<span class="md-ellipsis">
+    AppVolumes
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../horizon-server/">
+<span class="md-ellipsis">
+    Horizon Server
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ws1-identity/">
+<span class="md-ellipsis">
+    WS1 Identity Manager
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ws1-notifications/">
+<span class="md-ellipsis">
+    WS1 Notifications
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../powercli/">
+<span class="md-ellipsis">
+    PowerCLI
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            PowerCLI
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://vmware.github.io/power-validated-solutions-for-cloud-foundation">
+<span class="md-ellipsis">
+    PowerShell Module for VMware Validated Solutions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://vmware.github.io/powershell-module-for-vmware-cloud-foundation">
+<span class="md-ellipsis">
+    PowerShell Module for VMware Cloud Foundation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://vmware.github.io/powershell-module-for-vmware-cloud-foundation-reporting">
+<span class="md-ellipsis">
+    PowerShell Module for VMware Cloud Foundation Reporting
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://vmware.github.io/powershell-module-for-vmware-cloud-foundation-password-management">
+<span class="md-ellipsis">
+    PowerShell Module for VMware Cloud Foundation Password Management
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="https://vmware.github.io/powershell-module-for-vmware-cloud-foundation-certificate-management">
+<span class="md-ellipsis">
+    PowerShell Module for VMware Cloud Foundation Certificate Management
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../samples/">
+<span class="md-ellipsis">
+    Code Samples
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../sdk/">
+<span class="md-ellipsis">
+    SDKs
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tools/">
+<span class="md-ellipsis">
+    Tools
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../about/">
+<span class="md-ellipsis">
+    About
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overview">
+<span class="md-ellipsis">
+      Overview
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guiding-principles">
+<span class="md-ellipsis">
+      Guiding Principles
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typographical-conventions">
+<span class="md-ellipsis">
+      Typographical conventions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#related-work">
+<span class="md-ellipsis">
+      Related Work
+    </span>
+</a>
+<nav aria-label="Related Work" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3rd-party">
+<span class="md-ellipsis">
+      3rd party
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#request-and-response-types">
+<span class="md-ellipsis">
+      Request and Response Types
+    </span>
+</a>
+<nav aria-label="Request and Response Types" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#security-requirements">
+<span class="md-ellipsis">
+      Security requirements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#design-for-robust-operation-in-distributed-systems">
+<span class="md-ellipsis">
+      Design for robust operation in distributed systems
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-constructs">
+<span class="md-ellipsis">
+      Basic Constructs
+    </span>
+</a>
+<nav aria-label="Basic Constructs" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-types">
+<span class="md-ellipsis">
+      Data Types
+    </span>
+</a>
+<nav aria-label="Data Types" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#primitive-types">
+<span class="md-ellipsis">
+      Primitive types
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#objects">
+<span class="md-ellipsis">
+      Objects
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#naming-conventions">
+<span class="md-ellipsis">
+      Naming Conventions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uri-structure">
+<span class="md-ellipsis">
+      URI Structure
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hyperlinks">
+<span class="md-ellipsis">
+      Hyperlinks
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#http-verbs">
+<span class="md-ellipsis">
+      HTTP Verbs
+    </span>
+</a>
+<nav aria-label="HTTP Verbs" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#get">
+<span class="md-ellipsis">
+      GET
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#patch">
+<span class="md-ellipsis">
+      PATCH
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#put">
+<span class="md-ellipsis">
+      PUT
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#delete">
+<span class="md-ellipsis">
+      DELETE
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#post-create">
+<span class="md-ellipsis">
+      POST (create)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#post-non-crud-operations">
+<span class="md-ellipsis">
+      POST (non-CRUD operations)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-patterns">
+<span class="md-ellipsis">
+      API Patterns
+    </span>
+</a>
+<nav aria-label="API Patterns" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#long-running-operations">
+<span class="md-ellipsis">
+      Long-running operations
+    </span>
+</a>
+<nav aria-label="Long-running operations" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resource-state">
+<span class="md-ellipsis">
+      Resource State
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tasks">
+<span class="md-ellipsis">
+      Tasks
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-transfers">
+<span class="md-ellipsis">
+      File Transfers
+    </span>
+</a>
+<nav aria-label="File Transfers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-or-data-download">
+<span class="md-ellipsis">
+      File or Data Download
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#file-or-data-upload">
+<span class="md-ellipsis">
+      File or Data Upload
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-errors">
+<span class="md-ellipsis">
+      API Errors
+    </span>
+</a>
+<nav aria-label="API Errors" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#error-response-codes">
+<span class="md-ellipsis">
+      Error Response Codes
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-documentation">
+<span class="md-ellipsis">
+      API Documentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-evolution">
+<span class="md-ellipsis">
+      API Evolution
+    </span>
+</a>
+<nav aria-label="API Evolution" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dealing-with-incompatible-changes">
+<span class="md-ellipsis">
+      Dealing with incompatible changes
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-versioning">
+<span class="md-ellipsis">
+      API Versioning
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api-breaking-changes-and-deprecation">
+<span class="md-ellipsis">
+      API Breaking Changes and Deprecation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#appendix-a-reviewer-committee">
+<span class="md-ellipsis">
+      Appendix A - Reviewer Committee
+    </span>
+</a>
+<nav aria-label="Appendix A - Reviewer Committee" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#v-10">
+<span class="md-ellipsis">
+      v 1.0
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#v-20">
+<span class="md-ellipsis">
+      v 2.0
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#appendix-b-additional-examples">
+<span class="md-ellipsis">
+      Appendix B - Additional Examples
+    </span>
+</a>
+<nav aria-label="Appendix B - Additional Examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partial-update-using-list-of-instructions">
+<span class="md-ellipsis">
+      Partial Update Using List of Instructions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-xenon-response">
+<span class="md-ellipsis">
+      Example Xenon Response
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example-openstack-nova-server-provisioning">
+<span class="md-ellipsis">
+      Example OpenStack Nova Server provisioning
+    </span>
+</a>
+<nav aria-label="Example OpenStack Nova Server provisioning" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-server-request">
+<span class="md-ellipsis">
+      CREATE SERVER REQUEST
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#poll-server-under-creation">
+<span class="md-ellipsis">
+      POLL SERVER UNDER CREATION
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#poll-server-after-provisioning-is-completed">
+<span class="md-ellipsis">
+      POLL SERVER AFTER PROVISIONING IS COMPLETED
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/rcroft-work/eucdigitalworkspace.github.io/edit/docs/docs/api/api-guidelines.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"></path></svg>
+</a>
+<a class="md-content__button md-icon" href="https://github.com/rcroft-work/eucdigitalworkspace.github.io/raw/docs/docs/api/api-guidelines.md" title="View source of this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.15 8.15 0 0 1-1.23-2Z"></path></svg>
+</a>
+<h1 id="vmware-rest-api-standard-practices">VMware REST API Standard Practices<a class="headerlink" href="#vmware-rest-api-standard-practices" title="Permanent link">¶</a></h1>
+<p>September 2021</p>
+<p>Version 2.1</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">¶</a></h2>
+<p>There have been many discussions and efforts at VMware over the years around how to bring the appropriate level of consistency to our APIs as to allow customers to learn APIs faster and also provide consistent documentation and tooling support across the board. This lack of consistency has been a long-standing problem for us, and one that is complicated by VMware's vastly diverse portfolio and underlying technologies.</p>
+<p>For example a Java developer willing to work with vRA, vCenter and NSX together as of this moment may experience difficulties as SDKs may not be readily available in Java for all products, even if SDKs are available they are very likely to use conflicting versions of 3rd party libraries and the design patterns behind the different products are different. There is also a conflicting point of view that enforcing consistency top down will stifle innovation and prevent use of the latest technologies in VMware's products.</p>
+<p>This specification aims to strike a balance between these competing priorities by keeping consistency goals in areas important for our customers priorities, while giving sufficient freedom to individual teams to adopt innovative approaches. This specification will also defer to superseding, enterprise-wide standards where VMware has warranted in very specific areas that such requirements exist.</p>
+<ul>
+<li>Align the look and feel of APIs</li>
+<li>Provide consistent set of tooling and documentation across VMware APIs</li>
+<li>Refer to superseding standards as appropriate</li>
+</ul>
+<p>To support these goals the current specification lists requirements and expectations in 6 critical areas:</p>
+<ul>
+<li>Request and Response Types</li>
+<li>Message Payload</li>
+<li>API Errors</li>
+<li>API Documentation</li>
+<li>API Evolution</li>
+<li>API Deprecation and Removal</li>
+</ul>
+<p>It is not the goal of this document to drive architectural consistency at VMware. This document is aimed to provide guidance for designing the REST API - the protocol they use, the encoding of messages and structuring access patterns. It is understandable that some requirements here may have bearing to product design and architecture. In those cases the specification will try to provide sufficient room for product architects to make choice for their product.</p>
+<h2 id="guiding-principles">Guiding Principles<a class="headerlink" href="#guiding-principles" title="Permanent link">¶</a></h2>
+<p>The document discusses a number of areas and while we try to make it unambiguous it is possible that the guidance is lacking sufficient detail to make design and implementation choice. We want to thus lay out some guiding principles that engineers can use:</p>
+<ul>
+<li>Favor local consistency over global consistency — when faced with a violation of requirement it is more important to preserve consistency with adjacent APIs in the same component to minimize the learning barrier for end users. On a similar note, when a major change to the API is undertaken the thinking should be to provide unification within the family of VMware APIs as to reduce the friction for the new API that will be released.</li>
+</ul>
+<h2 id="typographical-conventions">Typographical conventions<a class="headerlink" href="#typographical-conventions" title="Permanent link">¶</a></h2>
+<p>The remainder of the document presents requirements towards VMware REST APIs. The text is split in two categories — normative statements and notes. Normative statements represent requirements towards product APIs. Notes aim to clarify the normative statements by presenting examples, background information, opinions of engineers, references to other specifications etc. Normative statements are represented as information boxes. Notes use all other formats in the document. Example normative statement</p>
+<blockquote>
+<p>Normative Statement</p>
+</blockquote>
+<p>Within normative statements the conventions of <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> are used. These define the meaning of MAY, SHOULD, SHOULD NOT, MUST and MUST NOT.</p>
+<h2 id="related-work">Related Work<a class="headerlink" href="#related-work" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="https://confluence.eng.vmware.com/display/NSBU/NSX-T+APIs%3A+Developer+Guides+and+Standards">NSX-T APIs: Developer Guides &amp; Standards</a></li>
+<li><a href="https://confluence.eng.vmware.com/display/CAEng/CMBU+API+Standardization">CMBU API Standardization</a></li>
+<li><a href="https://confluence.eng.vmware.com/display/VAPI/vAPI+Best+Practices">VAPI Best Practices</a> &amp; <a href="https://confluence.eng.vmware.com/display/VAPI/VMODL2+Documentation+Guidelines">VMODL2 Documentation Guidelines</a></li>
+<li><a href="https://confluence.eng.vmware.com/display/VCD/API+Development+Guide">vCloud Director — API development guide</a></li>
+</ul>
+<h3 id="3rd-party">3rd party<a class="headerlink" href="#3rd-party" title="Permanent link">¶</a></h3>
+<ul>
+<li><a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md">OpenAPI 3.0</a>, <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md">legacy v.2.0</a></li>
+<li><a href="https://github.com/Microsoft/api-guidelines">Microsoft REST API Guidelines</a></li>
+<li><a href="https://cloud.google.com/apis/design/">Google API Design Guide</a></li>
+<li><a href="http://developer.openstack.org/api-ref/compute/#compute-api">OpenStack Nova Compute API reference</a></li>
+<li><a href="https://aws.amazon.com/documentation/">AWS documentation index</a></li>
+</ul>
+<h2 id="request-and-response-types">Request and Response Types<a class="headerlink" href="#request-and-response-types" title="Permanent link">¶</a></h2>
+<p>This chapter sets out the basic requirements towards the request/response exchange between REST client and a service:</p>
+<blockquote>
+<p>RR-1: All requests to the REST API MUST follow HTTP 1.1 specification</p>
+</blockquote>
+<p>HTTP 1.1. protocol is defined in RFC 7230, RFC 7231, RFC 7232, RFC 7233, RFC 7234 and RFC 7235</p>
+<p>HTTP protocol is in the heart of the internet and thus all REST APIs are expected to use it. The HTTP protocol specifies a lot of semantics around requests which help standardized clients to operate the API. It is thus expected that API authors are familiar with the HTTP specification and use it appropriately. Key parts of the HTTP specifications relevant to APIs are HTTP verb semantics, response status codes, standard headers, authentication mechanisms, safe, idempotent and cache-able methods.</p>
+<p>The remainder of this specification defines constraints on top of the HTTP protocol to make it easier for modeling APIs. No exhaustive effort shall be made in this document to reiterate concepts of HTTP described in relevant RFC documents.</p>
+<p>This specification is aimed at REST APIs that form the management path of our API surface. There may be other APIs that work with binary data and are not subject to this specification. Example of such APIs may include: file transfer, screen shots, push notifications, south bound driver interfaces, console access etc.</p>
+<blockquote>
+<p>RR-2: APIs MUST be able to consume and produce JSON (application/json) <a href="https://tools.ietf.org/html/rfc8259">RFC 8259 - The JavaScript Object Notation (JSON) Data Interchange Format</a> unless they deal with file or stream data</p>
+</blockquote>
+<p>JSON is the de-facto standard for REST API message format as of 2016. It is beneficial to standardize around this syntax and enable common serialization infrastructure.</p>
+<p>This rule applies to all current JSON based REST APIs and future APIs. There is a set of legacy XML APIs which we hope will support JSON as the respective products evolve. There is realization that transition will take time and for some products that are nearing end of life the transition may not happen.</p>
+<p>There are APIs that transfer files contents to or from client. Those use cases are covered in the <a href="#file-transfers">File Transfers</a> chapter. Such APIs need to consume or produce binary data e.g. obtain screen shot of a virtual machine. Those APIs may consume or produce other MIME types that are more appropriate to their use cases e.g. <code>GET /vm/{vm id}/screen-shot</code> may return image/jpeg</p>
+<blockquote>
+<p>RR-3: All API functionality MUST be accessible using single request and response pattern (i.e. clients MUST not be required to use streaming, web sockets etc.)</p>
+</blockquote>
+<p>It is a common assumption in the existing REST tooling that an API interaction is defined in terms of a single request and single associated response conducted in the same HTTP request. While new standards like web sockets and comet provide utility in specific use cases they enable communication patterns that many off the shelf tools currently do not support. It is thus required to provide the full functionality of the API over simple request/response interface. It is permitted to provide alternate forms of communication as needed.</p>
+<blockquote>
+<p>RR-4: API operations MUST be uniquely identified through HTTP verb and URI combination</p>
+</blockquote>
+<p>In REST APIs users interact with resources identified by URI and use standard verbs to specify the operation on the resource e.g. HTTP GET on resource URI to retrieve the representation and HTTP PUT/PATCH to update etc. HTTP headers such as Content-type and Accept may be used to select among alternative resource representations e.g. XML/JSON rendering of a resource. It goes against this basic principle to encode API operations in the message header or body (<a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">REST APIs must be hypertext driven, R. Fielding, 2008</a>). Encoding operation name in the message body makes the protocol opaque to the HTTP infrastructure and prevents potential benefits like caching and operation through proxies.</p>
+<p>This requirement will allow us to use off the shelf REST tooling for invoking, serving and documenting APIs. Examples of such tooling include RAML, Swagger, Spring MVC, Apache CXF. Protocols such as XML RPC or SOAP do not fit this requirement as the operations are identified in the message body and require further interpretation of the message body to determine how to handle the request.</p>
+<h3 id="security-requirements">Security requirements<a class="headerlink" href="#security-requirements" title="Permanent link">¶</a></h3>
+<p>REST APIs may be utilized by different types of clients in variety of environments. These pose various types of threads towards the security of the APIs. A simple set of rules in this chapter aims to provide guidance to API authors on how to avoid common pitfalls that may be detrimental to their service or its clients.</p>
+<blockquote>
+<p>RR-5: Encryption MUST be used for communication that is not confined to the loopback interface.</p>
+</blockquote>
+<p>All communication to APIs must be conducted over secure channels using approved algorithms. This prevents unauthorized access to security tokens and/or API payload data.</p>
+<p>Use of unencrypted channels is acceptable for local loopback communication as to minimize the cost of communication. For example unencrypted local loopback channel may be used to communicate to sidecar proxy that is off loading TLS from service implementations.</p>
+<blockquote>
+<p>RR-6: API SHOULD NOT return sensitive data like secrets/passwords</p>
+</blockquote>
+<p>APIs that need to manage client secrets MUST only accept secrets as inputs and not return them as outputs. Returning passwords may lead to undesired leakage of information.</p>
+<p>This risk is often seen in APIs for configuration of remote connections.</p>
+<p>It is feasible to return secrets and passwords when those are generated or owned by given API and/or used for integration purposes. For example the OAuth 2 API returns access and refresh tokens as part of the authentication workflow. See <a href="https://tools.ietf.org/html/rfc6750#section-4">RFC 6570 Section 4. Example Access Token Response</a></p>
+<blockquote>
+<p>RR-7: APIs MUST be hardened against well-known attacks</p>
+</blockquote>
+<p>Interpreting inputs from the network should be done with extreme caution. A common vector for attack on APIs is to exploit various deserialization weaknesses. Those include overflowing input buffers, flooding a service with requests, XML expansion and code execution attacks. As an API author make sure to choose mature communication and deserialization libraries and address known risks with the chosen deserialization approach.</p>
+<p>Examples of common problems to check include:</p>
+<ul>
+<li>Make sure that appropriate request size filters are applied to prevent memory pressure due to oversized API requests.</li>
+<li>When using XML, make sure to disable various <a href="http://www.ws-attacks.org/XML_Entity_Expansion">XML expansion mechanisms</a>.</li>
+<li>Make sure that deserialization to objects in a language runtime cannot be used for arbitrary code execution by invoking vulnerable methods or instantiating classes that are not part of the API surface.</li>
+<li>Use rate and concurrent request limits that guarantee the health of an API endpoint</li>
+</ul>
+<blockquote>
+<p>RR-8: API access SHOULD be properly authenticated</p>
+</blockquote>
+<p>API calls should require authentication. Exception to this rule are APIs that allow a client to discover the capabilities of an API endpoint. For example API to retrieve API release number may be open to public unauthenticated access.</p>
+<blockquote>
+<p>RR-9: APIs SHOULD use standard HTTP headers for authentication</p>
+</blockquote>
+<p>Authentication tokens should be transferred using standard compliant HTTP headers to enable interoperability. See <a href="https://tools.ietf.org/html/rfc7235#section-4.2">RFC 7235 Section 4.2. Authorization</a></p>
+<blockquote>
+<p>RR-10: API Authentication MUST NOT use cookies</p>
+</blockquote>
+<p>APIs must not use cookies to hold credentials as cookies are automatically sent with the request by browsers when a cross origin request is made. Cookies must not be used to hold session keys. If this can't be avoided, sufficient anti-CSRF measures should be taken. See the <a href="https://github.com/OWASP/CheatSheetSeries/blob/master/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.md">Cross-Site Request Forgery Prevention Cheat Sheet</a>.</p>
+<blockquote>
+<p>RR-11: CORS support SHOULD be restricted</p>
+</blockquote>
+<p>CORS should be avoided. In some cases there are overriding business requirements that will necessitate the use of CORS. In those cases CORS may only be used with appropriate restrictions including:</p>
+<ul>
+<li>allowed headers</li>
+<li>allowed methods</li>
+<li>allowed origin if possible</li>
+</ul>
+<p>Avoid sending credentials when using CORS.</p>
+<blockquote>
+<p>RR-12: APIs MUST specify <code>content-type</code> header in responses when response body is present.</p>
+</blockquote>
+<p><code>application/json</code> with UTF-8 character encoding should be used and properly manifested in API responses. See <a href="https://tools.ietf.org/html/rfc8259#section-8.1">RFC 8259 Section 8.1. Character Encoding</a>, <a href="https://tools.ietf.org/html/rfc8259#section-11">RFC 8259 Section 11. IANA Considerations</a>, <a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5">RFC 7231 Section 3.1.1.5. Content-Type</a></p>
+<blockquote>
+<p>RR-13: APIs SHOULD NOT accept sensitive data in query parameters in URI</p>
+</blockquote>
+<p>Query parameters may be accessible to rouge scripts or visible in the browser window and must not be used to transfer sensitive or secretive data. URIs including query parameters are often cached, persisted and included in application logs.</p>
+<p>There are rare exceptions to this rule when short-lived tokens need to be sent using URI. For example in the OAuth 2 specification the authorization code grant workflow uses query parameter. See <a href="https://tools.ietf.org/html/rfc6749#section-4.1.2">RFC 6749 Section 4.1.2 Authorization Response</a>. Clients sending sensitive data in the URI should send <code>cache-control</code> header with <code>no-store</code> option and server 2xx responses are to include <code>cache-control</code> with <code>private</code> option. (from <a href="https://tools.ietf.org/html/rfc6750#section-2.3">RFC 6750 Section 2.3</a>).</p>
+<h3 id="design-for-robust-operation-in-distributed-systems">Design for robust operation in distributed systems<a class="headerlink" href="#design-for-robust-operation-in-distributed-systems" title="Permanent link">¶</a></h3>
+<p>Product APIs are used by customers, second parties, and for integration between VMware products; and thus the actual completion of an API request often involves multiple services. For this reason APIs should be designed with distributed execution in mind. API designers should at minimum consider the following factors in this regard:</p>
+<blockquote>
+<p>RR-14: API responses SHOULD be bounded in size</p>
+</blockquote>
+<p>API servers and clients should be able to set some expectations for the amount of resources needed to handle API calls. This problem specifically manifests with list and query functionality whose response size may grow substantially in large environments. Clients should be able to specify page size in a list/query request. Further, servers are free to reject the request or respond with reduced result sets to preserve server stability.</p>
+<p>For certain lists like SCSI devices where list size has implicit size limit it may not be necessary to implement complex pagination interface. This applies as long as the maximum possible size for the list is manageable.</p>
+<p>Notable exceptions to this rule are streaming APIs, data transfer APIs, console access</p>
+<blockquote>
+<p>RR-15: Individual HTTP requests SHOULD be designed to complete fast (&lt; 0.5 second)</p>
+</blockquote>
+<p>The basic requirement is to design all remote API interactions to complete within short interval of time. This is important to develop responsive user interfaces as user interactions may need to block for the duration of an individual API call (see <a href="http://www.stevenseow.com/papers/UI%20Timing%20Cheatsheet.pdf">User Interface Timing Cheatsheet</a>). If a back-end processing is expected to extend beyond the recommended limits then it should be split into several API interactions. For example a "create report" operation that may last 30 minutes can be split into "create report request" operation that accepts the inputs and return 202 (Accepted) with a tracking token identifying the request and a read operation to check the status of the request and obtain reference to the newly created report upon success.</p>
+<p>It is not uncommon that API operations become more complex as the product evolves. In case an operation duration extends in a subsequent product version alternative API may be offered that allows asynchronous execution</p>
+<p>Execution time may also depend on the size of environment or size of data relevant to the request. In this case an API can offer choice of synchronous and asynchronous execution.</p>
+<p>A notable exception to this rule are HTTP streaming APIs using technologies such as <a href="https://en.wikipedia.org/wiki/Comet_(programming)">Comet</a> or <a href="https://en.wikipedia.org/wiki/Server-sent_events">Server Sent Events</a>.</p>
+<blockquote>
+<p>RR-16: Protocol &amp; framework timeouts SHOULD be used appropriately</p>
+</blockquote>
+<p>At VMware we have sometimes neglected those mechanisms and been left with hard to diagnose and solve issues e.g. <a href="https://bugzilla.eng.vmware.com/show_bug.cgi?id=1591780">PR 1591780</a> and <a href="https://bugzilla.eng.vmware.com/show_bug.cgi?id=1506115">PR 1506115</a>. For example clients may find &lt; 15 seconds TCP connect timeout and TCP read timeouts of &lt; 2 minutes to work well. Similarly servers must be designed such that they can answer requests swiftly and report a re-triable error in cases when things go wrong. These may be dangerous if they spawn many re-tries so implementations should also be able to recognize such conditions and avoid failure.</p>
+<blockquote>
+<p>RR-17: API operations SHOULD provide means to recover from network failure</p>
+</blockquote>
+<p>Even with APIs designed to complete fast it is not impossible for network failure to occur while request is in progress. In those circumstances client should have a reliable way to resume its intended workflow once network connectivity is restored. One way to achieve such reliability is to design mutation APIs such that they allow to be retried without negative consequences.</p>
+<blockquote>
+<p>RR-18: API operations SHOULD provide adequate concurrency controls</p>
+</blockquote>
+<p>As scale is increased the probability of an entity being read and modified near simultaneously from concurrent workflows increases. To avoid race conditions in such scenarios APIs should define clear concurrency semantics and provide adequate protection mechanisms against concurrency errors. Examples of such mechanisms include last writer wins, optimistic locking through ETags (see <a href="https://en.wikipedia.org/wiki/HTTP_ETag">HTTP Etag Wikipedia article</a>)</p>
+<h2 id="basic-constructs">Basic Constructs<a class="headerlink" href="#basic-constructs" title="Permanent link">¶</a></h2>
+<h3 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permanent link">¶</a></h3>
+<blockquote>
+<p>CNST-1: JSON representations MUST NOT include type information except for discriminating between alternative object types.</p>
+</blockquote>
+<p>As the REST APIs may be used by humans directly or developers may want to craft simple SDKs by hand it is important to make data representations simple and intuitive. To this end we expect APIs to not obfuscate JSON with extensive schema information. If schema information is provided it SHOULD be out of band e.g. in an API definition such as Swagger, RAML or WADL file/resource. It is ok to include type identifiers and auxiliary data in server responses that is needed to operate the API. (See <a href="#example-xenon-response">Example Xenon response</a>)</p>
+<h4 id="primitive-types">Primitive types<a class="headerlink" href="#primitive-types" title="Permanent link">¶</a></h4>
+<blockquote>
+<p>CNST-2: REST services SHOULD apply the robustness principle (aka Postel's law) to tolerate slight variations in input while being strict in producing output</p>
+<p>CNST-3: REST services SHOULD use the primitive types defined in JSON <a href="https://tools.ietf.org/html/rfc8259">RFC 8259</a> and <a href="http://json-schema.org/specification.html">JSON Schema</a></p>
+</blockquote>
+<p>The following table lists the JSON types.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Sample</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>true / false</td>
+<td>true</td>
+<td>Two state variable. While RFC 8259 is pretty clear regarding the values representing true and false services often tolerate other commonly accepted representations as inputs e.g. 1 and 0, "True" and "False" string literals etc.</td>
+</tr>
+<tr>
+<td>string</td>
+<td>"Hello World!"</td>
+<td>A quoted unicode sequence of characters</td>
+</tr>
+<tr>
+<td>number</td>
+<td>1.61803398875</td>
+<td>JSON specifies only one number format. Services may specify additional validation constraints - whole numbers, byte, 32 bit integer etc.</td>
+</tr>
+<tr>
+<td>null</td>
+<td>null</td>
+<td>useful for denoting unset value e.g. to disable a policy it may be useful to unset it. In PATCH partial updates null may be interpreted differently from missing value i.e. null resets field to null, missing leaves the old value. The behavior should be specified for each products/component.</td>
+</tr>
+<tr>
+<td>object</td>
+<td>{ "answer" : 42 }</td>
+<td>represents an object or map</td>
+</tr>
+<tr>
+<td>array</td>
+<td>[30, 42]</td>
+<td>represents ordered list of elements</td>
+</tr>
+</tbody>
+</table>
+<p>On top of the basic JSON types through syntax restrictions JSON schema and VMware practice define additional useful data types</p>
+<table>
+<thead>
+<tr>
+<th>Restriction</th>
+<th>Sample</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>date-time</td>
+<td>2004-07-25T06:18:20.521-04:00</td>
+<td>String representing date and/or time values encoded as per JSON Schema (ISO 8601, RFC 3339 section 5.6)</td>
+</tr>
+<tr>
+<td>email</td>
+<td>jdoe@aol.com</td>
+<td>email address as per JSON schema</td>
+</tr>
+<tr>
+<td>hostname</td>
+<td>nimbus.eng.vmware.com</td>
+<td>hostname as per JSON schema</td>
+</tr>
+<tr>
+<td>ipv4</td>
+<td>192.168.4.1</td>
+<td>IPv4 address as per JSON Schema</td>
+</tr>
+<tr>
+<td>ipv6</td>
+<td>FEDC:BA98:7654:3210:FEDC:BA98:7654:3210</td>
+<td>IPv6 address as per JSON Schema</td>
+</tr>
+<tr>
+<td>uri</td>
+<td>ftp://joe:secret@ftp.mysite.com</td>
+<td>URI as per JSON schema</td>
+</tr>
+<tr>
+<td>Binary</td>
+<td>SGVsbG8gV29ybGQh</td>
+<td>String value containing base64 encoded binary data. This is suitable for small amounts of binary data like hashes, public keys etc. This is not defined in JSON Schema but is used in several VMware APIs.</td>
+</tr>
+<tr>
+<td>integer</td>
+<td>42</td>
+<td>a number without fractional component. In JSON schema defined as multiple of 1</td>
+</tr>
+</tbody>
+</table>
+<h4 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">¶</a></h4>
+<p>JSON objects are to be used for representing objects and maps.</p>
+<p>In most cases the schema of an object is clear from its context. For example virtual machine create operation accepts a JSON object with predefined set of members.</p>
+<p>In some occasions the type of object may not be clear from context. In those cases a type discriminator member is to be used to identify the correct type.</p>
+<p>Typical use cases that require use of type discriminator include:</p>
+<ol>
+<li>Errors - error types typically share most of their members however the semantics are vastly different based on the type of error.</li>
+<li>Extensible Polymorphic resources - when a given object can be one of several complex semantic types</li>
+</ol>
+<blockquote>
+<p>CNST-4: If type discriminator is to be included it SHOULD be the first member of a serialized object.</p>
+</blockquote>
+<p>Below is example polymorphic object from NSX API.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// OK - resource_type member indicates the type of an object that may be one of several types</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">"resource_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SpoofGuardSwitchingProfile"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spoof-guard-lswitch-bindings"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"white_list_providers"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LSWITCH_BINDINGS"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Alternative way to represent type discriminators is by using member name i.e. in a parent object only one of a set of members is set at a time and each member name is associated with specific type. For example a schema may contain <code>result</code> and <code>error</code> fields to represent the result of an operation.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">   </span><span class="nt">"error"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"error_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"com.vmware.vapi.std.errors.invalid_argument"</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>CNST-5: Type discriminators SHOULD be used sparingly.</p>
+</blockquote>
+<p>For example it is NOT OK to use type discriminators for primitive types across the board, thereby embedding schema information in the payload. Instead out of band schema of the containing object should define the type of a member.</p>
+<p>Good example</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"age"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">35</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>NOT OK</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"age"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"int"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"35"</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>See <a href="http://build-squid.eng.vmware.com/build/mts/release/bora-3788284/publish/nsx-manager/api.html#Sections.Logical%20Switching.Switching%20Profiles">NSX T Switching Profiles</a></p>
+<h3 id="naming-conventions">Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">¶</a></h3>
+<p>In June 2014 a discussion was held in the OCTO API group around naming of parameters in REST APIs (see <a href="related/field_naming_decision.md">Field naming debate</a>). A consensus was reached that</p>
+<blockquote>
+<p>CNST-6: JSON object member names SHOULD use lower_snake_case</p>
+</blockquote>
+<p>Example: <code>"resource_description": "A description"</code></p>
+<blockquote>
+<p>CNST-7: URIs SHOULD use kebab-case</p>
+</blockquote>
+<p>Example: <code>/my-resources/123</code></p>
+<p>The above rule applies only to the predefined segments of the URI path. When identifier or enumeration values are part of a URI as parameters their values should not be modified to follow the above guidance.</p>
+<blockquote>
+<p>CNST-8: Enumerated values SHOULD use UPPER_SNAKE_CASE</p>
+</blockquote>
+<p>Example: <code>"state": "POWERED_OFF"</code></p>
+<p>Following the guidance for JSON object member names</p>
+<blockquote>
+<p>CNST-9: Query parameter names SHOULD use lower_snake_case</p>
+</blockquote>
+<p>Example: <code>/virtual-machines?power_state=POWERED_OFF</code></p>
+<p>The HTTP RFCs define a number of standard headers using kebab-case. For example the conditional headers defined in <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a> last-modified, if-match etc. HTTP header hames should be treated as case insensitive as per <a href="https://tools.ietf.org/html/rfc7230#section-3.2">HTTP 1.1 RFC 7230</a>. As per <a href="https://tools.ietf.org/html/rfc7540#section-8.1.2">HTTP/2 RFC 7540</a> header names must be lower cased before transmission. To clearly define the API contract the following guidance to header names applies</p>
+<blockquote>
+<p>CNST-10: Header parameter names SHOULD use lower-kebab-case</p>
+</blockquote>
+<p>Example: <code>record-offset: 13</code></p>
+<p>Below is an example illustrating full request:</p>
+<p>PREFERRED</p>
+<div class="highlight"><pre><span></span><code><span class="err">PUT /my-resources/123?update_details=true</span>
+<span class="err">if-match: "182584fa-1767-410e-9b63-ea8bc07b8d2f"</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">"resource_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"resource_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A description"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POWERED_OFF"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Acceptable for PRE EXISTING APIs - as previously discussed PascalName and camelCase have certain issues we want to avoid. It is not nice to use mixed case URIs from usability perspective</p>
+<div class="highlight"><pre><span></span><code><span class="err">PUT /myResources/123</span>
+<span class="err">{</span>
+<span class="err">    "resourceName": "test", // camelCase identifier is problem</span>
+<span class="err">    "ResourceDescription": "A description", // PascalName identifier is problem</span>
+<span class="err">    "state": "powered-on" // kebab-case enumerated value is problem</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>Some of our products use CamelCase and/or mixedCase identifiers. In those cases for consistency it is preferable to retain the existing convention.</p>
+<h3 id="uri-structure">URI Structure<a class="headerlink" href="#uri-structure" title="Permanent link">¶</a></h3>
+<blockquote>
+<p>CNST-11: The URI SHOULD identify the component/product and resource type being accessed</p>
+</blockquote>
+<p>Example: <code>/vcenter/folders</code></p>
+<blockquote>
+<p>CNST-12: The URIs SHOULD use plural names for resources</p>
+</blockquote>
+<p>Example: <code>/content/libraries</code></p>
+<p>Abbreviations in APIs should be generally avoided except when those are industry standard. In cases when abbreviations are used they should be pluralized according to Chicago Manual of Style.</p>
+<blockquote>
+<p>CNST-13: Components SHOULD be able to handle a base URI prefix dependent on the packaging and deployment (suite , product etc.) The suggested structure of the URI is as follows <code>{base URI}/{component}/{resource}</code></p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://sddc.vmware.com/content/libraries/{library-id}</span>
+<span class="err">// https://sddc.vmware.com/ - base URI</span>
+<span class="err">// content - product/component namespace</span>
+<span class="err">// libraries/{library-id} - resource</span>
+</code></pre></div>
+<blockquote>
+<p>CNST-14: URIs SHOULD NOT contain redundant names</p>
+</blockquote>
+<p>Bad example</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://sddc.vmware.com/vcenter/vm/vm/{vm}</span>
+</code></pre></div>
+<blockquote>
+<p>CNST-15: Resource names SHOULD be simple nouns expressing only the semantics of the resource</p>
+</blockquote>
+<p>Avoid using suffixes in resource URIs like <strong>-resource</strong>, <strong>-service</strong> etc.</p>
+<p>Good example</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://sddc.vmware.com/vcenter/vm/vm-104</span>
+</code></pre></div>
+<p>Bad example</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://sddc.vmware.com/vcenter/vm-resource/vm-104</span>
+</code></pre></div>
+<h3 id="hyperlinks">Hyperlinks<a class="headerlink" href="#hyperlinks" title="Permanent link">¶</a></h3>
+<p>Important aspect of REST APIs is hyperlinking of resources. Hyperlinks allow clients to navigate the API with <a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven">limited or no out of band knowledge of the system</a>. VMware APIs and the use cases we see from clients imply out of band knowledge of the API semantics and syntax. Thus the hyperlinks serve a secondary purpose for the API consumer. For example a hyperlink may navigate the consumer to particular node or service instance in a scaled out environment. Hyperlinks may also be useful to traverse a collection, locate parent resource and a number of other common use cases. Yet even in those cases compiled clients like SDKs and reflective clients like CLIs may find it easier to use application defined identifiers that are to be placed inside subsequent request in RPC manner instead of utilizing hyperlinks. The goal of this chapter of the standard is to set out syntax guidelines for rendering hyperlinks such that clients know how to find, understand the semantics of and use the hyperlinks in an API response.</p>
+<blockquote>
+<p>CNST-16: An API response MAY provide hyperlinks to related resources.</p>
+</blockquote>
+<p>In defining the link syntax we want to leverage existing standards. There is not yet a widely accepted JSON standard for hyperlink representation. Following review of industry practices <a href="http://stateless.co/hal_specification.html">Hypertext Application Language (HAL)</a> seems to come closest to a standard for JSON link representation.</p>
+<blockquote>
+<p>CNST-17: Links MUST be rendered within <code>_links</code> JSON object member.</p>
+<p>CNST-18: Links MUST be represented as object or array members of the <code>_links</code> object.</p>
+<p>CNST-19: The names of members of the <code>_links</code> object MUST use the name of the member they relate to or standard <a href="https://www.iana.org/assignments/link-relations/link-relations.xhtml">IANA link relation names</a>.</p>
+<p>CNST-20: Multiple links sharing the same relation value MUST be represented as array of link objects.</p>
+<p>CNST-21: Link objects MUST have <code>href</code> member containing target URL.</p>
+</blockquote>
+<p>It may be beneficial to include additional data about a linked resources in hyperlinks. Such data may include the type of linked resource or properties of the linked resource needed for display purposes among others.</p>
+<blockquote>
+<p>CNST-22: Link objects MAY have additional members to complement their semantics.</p>
+</blockquote>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">   </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"host-12"</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">"disks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"IDE0:1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"IDE1:0"</span><span class="p">],</span>
+<span class="w">   </span><span class="nt">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://vc.coke.com/api/vcenter/vms/vm-42"</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"host"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://vc.coke.com/api/vcenter/hosts/host-12"</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RDVC_ESX13"</span>
+<span class="w">         </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">"disks"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://vc.coke.com/api/vcenter/vms/vm-42/disks/IDE0:1"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDE0:1"</span>
+<span class="w">         </span><span class="p">},</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://vc.coke.com/api/vcenter/vms/vm-42/disks/IDE1:0"</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IDE1:0"</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p>CNST-23: <code>href</code> values SHOULD be absolute URLs or absolute paths as defined by <a href="https://tools.ietf.org/html/rfc1808#section-2.2">RFC 1808 Section 2.2</a>.</p>
+</blockquote>
+<p>Absolute URLs start with a scheme and authority (hostname, IP, port number and possibly authentication data). Absolute paths start with a slash and represent resource on the same endpoint.</p>
+<p>For example:</p>
+<p><code>Absolute URL: http://cloud.vmware.com/sddcs/sddc-15</code></p>
+<p><code>Absolute Path: /sddcs/sddc-15</code></p>
+<p>In case a service is deployed behind a reverse proxy whose hostname may be hard to figure absolute paths may work better. Absolute paths may be useful as resource identifiers that clients cache and are immune to changes of service hostname. Absolute URLs may be useful in scaled out environments to navigate the users between different shards of a service.</p>
+<p>Use of paths relative to particular resource is discouraged. Those need to be interpreted in the context of a preceding request and require state on the client.</p>
+<h2 id="http-verbs">HTTP Verbs<a class="headerlink" href="#http-verbs" title="Permanent link">¶</a></h2>
+<p>A key aspect of modern APIs is uniformity of the interface (<a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1_5">5.1.5 Uniform Interface; Architectural Styles and the Design of Network-based Software Architectures; R. Fielding, 2000</a>). When modeling a REST API the majority of design should be focused on modeling the resource representation and how these will be used to drive the application state. This is in sharp contrast to modeling classic RPC APIs that focus on modeling operations through which the application state is manipulated. In a REST API a consumer interacts with a resource representation through standard HTTP operations. So consumers need not to care as much what operations are available as they would do in a traditional system. Instead API consumers focus on the resource model, resource representations and navigation to related/linked resources. Resources accessed via standardized set of verbs form the basis for automation and policy driven systems. The following rules capture the above intent when mapped to HTTP:</p>
+<blockquote>
+<p>VERB-1: API SHOULD be structured around resources identified through nouns in a resource URI</p>
+<p>VERB-2: Interaction with the API SHOULD happen through manipulation of resource representations via standard HTTP verbs</p>
+</blockquote>
+<p>Details about the patterns used with the various verbs follows</p>
+<blockquote>
+<p>VERB-3: APIs' contract MUST specify only one success response type for given request</p>
+</blockquote>
+<p>A response type is the combination of response body schema, HTTP status code and headers. Multiple types of success responses for given operation require a client to implement multiple handlers for the success of each operation. For example if API implementations can either return JSON or CSV it should be specified by the client accept header or default for the API contract. Another example is an API that can return task or block until the actual result is produced, in this case the selection should be made based on API default or client parameter. In the later example it would be inappropriate for server to make the choice of task or blocking based on internally estimated duration.</p>
+<blockquote>
+<p>VERB-4: If a URI supports PUT, POST or PATCH then it SHOULD support HTTP GET</p>
+</blockquote>
+<p>With very few exceptions all resource URIs should support HTTP GET operation. There may be rare exceptions for example a resource may support creation and lack list/query capability.</p>
+<p>Modeling API interaction through standard CRUD (Create, Read, Update, Delete) operations eases integration with desired state automation tools like Chef, Puppet, Ansible, Microsoft Desired State automation as generation of the integration code may be used. Thus it is recommended to model fully functional resource abstractions that allow POST to create, GET to read, PUT or PATCH for update and DELETE.</p>
+<blockquote>
+<p>VERB-5: Operations with side effects SHOULD accept client operation identifier tokens. These tokens allow clients to reconnect to an operation when client fail to receive the original response.</p>
+</blockquote>
+<p>The client token approach is employed by <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Amazon EC2</a> and <a href="http://pubs.vmware.com/vsphere-60/topic/com.vmware.ICbase/PDF/vcs_java_prog_guide_6_0.pdf">vSphere Content Library API</a> to assure at most once semantics.</p>
+<h3 id="get">GET<a class="headerlink" href="#get" title="Permanent link">¶</a></h3>
+<p>Retrieves a resource representation. Client requests a resource living on given URI and receives back a resource representation.</p>
+<blockquote>
+<p>VERB-6: GET request MUST retrieve resource representation</p>
+<p>VERB-7: GET operations MUST be safe to retry. (see <a href="https://tools.ietf.org/html/rfc7231#section-4.2.1">RFC 7231 Section 4.2.1 Safe Methods</a> )</p>
+<p>VERB-8: GET requests SHOULD not expect request body</p>
+</blockquote>
+<p>Safe to retry means that no significant side effects are exerted on the entity addressed by the request. It is possible that side effects are realized in form of log entries, last accessed time stamp etc.</p>
+<p>Sometimes functionality like lease/lifespan of objects may be affected by last accessed time. For example upload session lifespan may be managed by tracking access to it. Using GET requests for this use case may be tricky as GET result may potentially be cached by some intermediate result. It is recommended to increase leases with a POST request.</p>
+<p>Typical Patterns:</p>
+<ul>
+<li><strong>GET /{singleton}</strong> - retrieve singleton representation e.g. /tagging/settings</li>
+<li><strong>GET /{resource collection}</strong> - list/query entities e.g. /identity/api/tenants</li>
+<li><strong>GET /{resource collection}/{id}</strong> - retrieve instance representation e.g. /identity/api/tenants/MYCOMPANY</li>
+<li><strong>GET /{resource collection}/{id}/{fragment}</strong> - retrieve a fragment of a complex resource e.g. /vcenter/vm/vm-15/cpu</li>
+<li><strong>GET /{resource collection}/{id}/{sub-resource collection}</strong> - list/query collection of sub-resources e.g. /identity/api/tenants/MYCOMPANY/directories.</li>
+<li><strong>GET /{resource collection}/{id}/{sub-resource collection}/{sub-resource id}</strong> - retrieve a sub-resource instance e.g. /vcenter/vm/vm-15/disks/disk-2.</li>
+</ul>
+<p>Success response status codes:</p>
+<ul>
+<li><strong>200 (Ok)</strong> on success completion</li>
+<li><strong>304 (Not Modified)</strong> when client has the latest version of the resource and caching is supported (See <a href="https://tools.ietf.org/html/rfc7232#section-4.1">RFC 7232 section 4.1</a>)</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET /tagging/categories/c78b51b9-da37-44c9-9ac4-14ed788cc583</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+
+{
+ "id" : "c78b51b9-da37-44c9-9ac4-14ed788cc583",
+ "associable_types" : [ "VirtualMachine" ],
+ "description" : "Desc Cat",
+ "name" : "MyCategory",
+ "used_by" : [ ],
+ "cardinality" : "MULTIPLE"
+}
+</code></pre></div>
+<h3 id="patch">PATCH<a class="headerlink" href="#patch" title="Permanent link">¶</a></h3>
+<p>Creates or partially updates a resource. HTTP PATCH was introduced in <a href="https://tools.ietf.org/html/rfc5789">RFC 5789</a> as an add-on to HTTP.</p>
+<p>Developers of PATCH APIs may be concerned about the availability of HTTP PATCH in specific tools or deployment environments. In those circumstances alternative access to the HTTP PATCH functionality SHOULD be provided. One way to achieve this is through <a href="#post-non-crud-operations">POST (non-CRUD operations)</a>. Another example is using <a href="https://cloud.google.com/compute/docs/instance-groups/updater/v1beta1/how-tos/performance#patch-alt-notation">HTTP POST and X-HTTP-Method-Override</a>.</p>
+<p>HTTP PATCH APIs are susceptible to concurrency issues when used in read-modify-write scenarios. It is recommended that <a href="#concurrency">optimistic concurrency control</a> is employed to avoid mid-air collisions.</p>
+<p>HTTP PATCH is the preferred way to update a resource as it solves several complications present in HTTP PUT. PATCH allows only relevant subset of properties to be updated thus minimizing the opportunity for conflicts. PATCH input schema can be extended as the product evolves. JSON body members that are not specified by the client in a partial update remain unchanged.</p>
+<blockquote>
+<p>VERB-9: PATCH requests MAY be non-idempotent.</p>
+<p>VERB-10: PATCH requests MUST accept resource identifier(s) in the URI path and a document describing the changes in the body of the request</p>
+<p>VERB-11: PATCH requests SHOULD on success return either 200 (OK) with updated resource document alternatively it MAY return 204 (No-content) with empty document OR 202 (Accepted) with a task (tracking resource) OR 201 (created) code when a new instance is created.</p>
+</blockquote>
+<p>There are two general approaches to implement PATCH API in the industry that have gained prominence. The recommended in the general case practice is to use partial documents.</p>
+<ul>
+<li>
+<p><strong>Accept partial document with only subset of the resource properties present. (RECOMMENDED)</strong> This is described in <a href="https://tools.ietf.org/html/rfc7386">RFC 7386</a>. The server only updates the properties found in the request document. JSON null in this case is used to signal the server to reset a property. This approach is not quite suitable for updating arrays as indiviudal array elements cannot be addressed. One approach for handling arrays is to accept three lists — new, to be deleted and to be updated. This approach of partial documents is adopted by <a href="https://wiki.eng.vmware.com/VAPI/Providers/VAPIBestPractices#There_is_a_difference_between_Set_and_Update._Use_the_correct_one">VAPI Best Practices</a> and <a href="https://cloud.google.com/compute/docs/api/how-tos/performance#patch">Google Compute Engine API</a>. The input for PATCH with partial document should resemble the output of a GET operation on the same resource.</p>
+</li>
+<li>
+<p><strong>Accept list of instructions for updating the resource.</strong> This approach expects a list of statements each describing a modification to the resource representation e.g. update property X, unset property Y, add element to the end of a list, remove the third element etc. This approach to implementing PATCH makes it non-idempotent (e.g. remove third element). <a href="https://tools.ietf.org/html/rfc6902">RFC 6902 - JavaScript Object Notation (JSON) Patch</a> and <a href="http://wiki.eng.vmware.com/View/ViewAPI/GettingStarted#Updates">VMware View</a> employ this approach. This approach is more efficient if list manipulation is frequent use case. See <a href="#partial-update-using-list-of-instructions">example update from RFC 6902</a>.</p>
+</li>
+</ul>
+<p>Typical Patterns:</p>
+<ul>
+<li><strong>PATCH /{singleton}</strong> — update singleton representation e.g. /tagging/settings</li>
+<li><strong>PATCH /{resource collection}/{id}</strong> — update or create a resource instance e.g. /vcenter/vm/vm-15</li>
+<li><strong>PATCH /{resource collection}/{id}/{fragment}</strong> — update a fragment of a complex resource e.g. /vcenter/vm/vm-15/cpu</li>
+<li><strong>PATCH /{resource collection}/{id}/{sub-resource collection}/{sub-resource id}</strong> — update or create a sub-resource e.g. /vcenter/vm/vm-15/disks/disk-2.</li>
+</ul>
+<p>Success response status codes:</p>
+<ul>
+<li><strong>200 (Ok)</strong> in success update case when the updated resource representation is returned</li>
+<li><strong>201 (Created)</strong> in case new resource has been created and its representation is returned</li>
+<li><strong>202 (Accepted)</strong> when operation is performed asynchronously.</li>
+<li><strong>204 (No Content)</strong> on success in case no message body is returned</li>
+</ul>
+<p>Example update using partial document:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">PATCH</span> <span class="nn">/content/libraries/bbc7dd4f-0ece-4ad3-ae74-5547a0f2a5c9</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="err">{</span>
+ "name" : "New library name"
+}
+
+HTTP/1.1 200 OK
+</code></pre></div>
+<h3 id="put">PUT<a class="headerlink" href="#put" title="Permanent link">¶</a></h3>
+<p>Creates or replaces a resource.</p>
+<p>In accordance with <a href="https://tools.ietf.org/html/rfc7231#section-4.3.4">RFC 7231 section 4.3.4</a> PUT performs full update (replacement) on a resource.</p>
+<p>PUT APIs SHOULD consider the impact of concurrent modifications and employ appropriate <a href="#concurrency">concurrency control mechanisms</a>.</p>
+<p>HTTP PUT APIs are not extensible as the product evolves i.e. no new optional members can be added to their input. This is significant limitation for complex APIs. It is thus recommended to use HTTP <a href="#patch">PATCH</a> for updates to allow the resource schema to be extended in the future.</p>
+<p>With HTTP PUT there is inherent risk of unrelated concurrent changes clobbering each other's effect. For example if 2 users make nearly concurrent updates to different properties of a resource it is possible that the changes of the first user are reverted by the second user. Optimistic locking may be employed to avoid collisions. HTTP standard headers ETag, If-Match may be used for optimistic locking. <a href="#patch">HTTP PATCH</a> or fragment pattern allow for focused modifications within complex resources.</p>
+<p>A common use case involving PUT APIs is read-modify-write. An API user fetches resource representation using HTTP GET modifies some of the resource properties and PUTs back the modified resource document. This pattern allows developers to quickly apply the API for routine tasks.</p>
+<p>A subset of properties returned by HTTP GET may be read-only e.g. <code>resource identifier</code>, <code>revision</code> etc. HTTP PUT contract SHOULD be clear about handling of those properties. The general rule is to throw an error when attempt to modify read-only property is made. Throwing error will allow the contract to be updated in later version to allow modification of the property.</p>
+<p>A special kind of read only properties are system properties exposed by the programming framework. Those properties may never become writable. Such properties may include things like <code>last_modified</code>, <code>revision</code> etc. Servers SHOULD ignore such properties on input to PUT. Further servers may want to use special syntax for the names of such properties to distinguish them from properties innate to particular resource. For example <a href="http://build-squid.eng.vmware.com/build/mts/release/bora-3788284/publish/nsx-manager/api.html#Methods.GetAssociations">NSX use underscore prefixed names</a> for system properties. See also a <a href="#example-xenon-response">Xenon example response</a></p>
+<div class="highlight"><pre><span></span><code><span class="err">GET /api/realization-state-barrier/config</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"resource_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"RealizationStateBarrierConfig"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"interval"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"_revision"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"564dab50-63a0-8b4f-a1f8-20e4d36efc3b"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"_last_modified_user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"_last_modified_time"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1414088642536</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"_create_time"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1414088642536</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"_create_user"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>PUT requests should adhere to the following guidelines</p>
+<blockquote>
+<p>VERB-12: PUT requests MUST update the whole resource configuration with the supplied configuration. Properties that are not included in the request MUST be reset to default value.</p>
+<p>VERB-13: PUT requests MUST be idempotent i.e. it is safe to re-try a request multiple times</p>
+<p>VERB-14: PUT requests MUST accept resource identifier(s) in the URI path and a resource document in the body of the request</p>
+<p>VERB-15: PUT requests SHOULD on success return either 200 (OK) with updated resource document alternatively it MAY return 204 (No-content) with empty document OR 202 (Accepted) with a task (tracking resource) OR 201 (created) code when a new instance is created.</p>
+<p>VERB-16: PUT request body SHOULD accept the response body of GET on the same resource.</p>
+<p>VERB-17: PUT APIs SHOULD document the semantics of fields — writable, ignored or unmodifiable.</p>
+</blockquote>
+<p>Typical Patterns:</p>
+<ul>
+<li><strong>PUT /{singleton}</strong> — set singleton representation e.g. /tagging/settings</li>
+<li><strong>PUT /{resource collection}/{id}</strong> — set instance representation e.g. /vcenter/vm/vm-15</li>
+<li><strong>PUT /{resource collection}/{id}/{fragment}</strong> — set a fragment of a complex resource e.g. /vcenter/vm/vm-15/cpu</li>
+<li><strong>PUT /{resource collection}/{id}/{sub-resource collection}/{sub-resource id}</strong> — set a sub-resource e.g. /vcenter/vm/vm-15/disks/disk-2.</li>
+</ul>
+<p>Success response status codes:</p>
+<ul>
+<li><strong>200 (Ok)</strong> in success update case when the updated resource representation is returned</li>
+<li><strong>201 (Created)</strong> in case new resource has been created and it's representation is returned</li>
+<li><strong>202 (Accepted)</strong> when operation is performed asynchronously.</li>
+<li><strong>204 (No Content)</strong> on success in case no message body is returned</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">PUT</span> <span class="nn">/tagging/categories/c78b51b9-da37-44c9-9ac4-14ed788cc583</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="err">{</span>
+ "associable_types" : [ "VirtualMachine" ],
+ "description" : "Desc Cat",
+ "name" : "MyCategory",
+ "used_by" : [ ],
+ "cardinality" : "MULTIPLE"
+}
+
+HTTP/1.1 200 OK
+{
+ "associable_types" : [ "VirtualMachine" ],
+ "description" : "Desc Cat",
+ "name" : "MyCategory",
+ "used_by" : [ ],
+ "cardinality" : "MULTIPLE"
+}
+</code></pre></div>
+<h3 id="delete">DELETE<a class="headerlink" href="#delete" title="Permanent link">¶</a></h3>
+<p>Deletes a resource instance.</p>
+<p>HTTP DELETE APIs are susceptible to concurrency issues and is possible for one user to delete an entity based on assumptions from recent read that are not true at time of deletion. It is recommended that <a href="#concurrency">optimistic concurrency control</a> is employed to avoid mid-air collisions.</p>
+<blockquote>
+<p>VERB-18: DELETE requests MUST accept resource identifier(s) in the URI path</p>
+</blockquote>
+<p>Delete calls may accept additional optional parameters, for example to set expiration date for purging the resource.</p>
+<blockquote>
+<p>VERB-19: DELETE requests SHOULD on success return HTTP code 204 (no content) on success (200 OK or 202 Accepted are also acceptable but not recommended)</p>
+<p>VERB-20: DELETE requests SHOULD not expect request body</p>
+</blockquote>
+<p>Typical Patterns:</p>
+<ul>
+<li><strong>DELETE /{resource collection}/{id}</strong> — delete a resource representation</li>
+<li><strong>DELETE /{resource collection}/{id}/{sub-resource collection}/{sub-resource id}</strong> — delete a sub-resource instance e.g. /vcenter/vm/vm-15/disks/disk-2.</li>
+</ul>
+<p>Success response status codes:</p>
+<ul>
+<li><strong>200 (Ok)</strong> in success delete case when document is returned</li>
+<li><strong>202 (Accepted)</strong> when operation is performed asynchronously and task (tracking resource) is returned.</li>
+<li><strong>204 (No Content)</strong> on success in case no message body is returned</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">DELETE</span> <span class="nn">/tagging/categories/bbc7dd4f-0ece-4ad3-ae74-5547a0f2a5c9</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+
+HTTP/1.1 204 No Content
+</code></pre></div>
+<h3 id="post-create">POST (create)<a class="headerlink" href="#post-create" title="Permanent link">¶</a></h3>
+<p>Creates new resource instance.</p>
+<blockquote>
+<p>VERB-21: POST create request SHOULD on success return 201 (Created) code alongside resource document with populated auto-generated fields like ID, last update time etc. or 201 (Created) code alongside the ID of the new resource or 202 (Accepted) alongside a task (tracking resource) for asynchronous execution</p>
+<p>VERB-22: On success create operations SHOULD return a <strong>Location</strong> header with the URI of the new resource</p>
+</blockquote>
+<p>Typical Patterns:</p>
+<ul>
+<li><strong>POST /{resource collection}</strong> — create new instance</li>
+<li><strong>POST /{resource collection}/{id}/{sub-resource collection}</strong> — create new instance of a sub-resource e.g. /vcenter/vm/vm-15/disks.</li>
+</ul>
+<p>Success response status codes:</p>
+<ul>
+<li><strong>201 (Created)</strong> in case new resource has been created and its representation is returned. It is acceptable to use 200 in legacy APIs.</li>
+<li><strong>202 (Accepted)</strong> when operation is performed asynchronously and task (tracking resource) is returned.</li>
+</ul>
+<p>Response Headers:</p>
+<ul>
+<li><strong>Location</strong> header SHOULD specify the location of the primary resource created by this operation <a href="https://tools.ietf.org/html/rfc7231#section-7.1.2">RFC 7231 section 7.1.2</a></li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">POST</span> <span class="nn">/tagging/categories</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="err">{</span>
+ "name" : "Category name",
+ "description" : "Category Description",
+ "associable_types" : [ "Folder" ],
+ "cardinality" : "SINGLE"
+}
+
+HTTP/1.1 200 OK
+Location: http://sddc.vmware.com/tagging/categories/9580d673-442d-44de-8839-dd7778c6179a
+
+
+{
+ "id" : "9580d673-442d-44de-8839-dd7778c6179a"
+}
+</code></pre></div>
+<h3 id="post-non-crud-operations">POST (non-CRUD operations)<a class="headerlink" href="#post-non-crud-operations" title="Permanent link">¶</a></h3>
+<p>As we model complex systems there is the occasional case where modeling interactions purely through manipulating resource representations may be inefficient or increase API complexity substantially.</p>
+<p>Few examples that are not mapping well to resource property manipulation are:</p>
+<ol>
+<li><strong>restart operation of a virtual machine</strong> operation performs a state transition of a virtual machine from "powered on" through some intermediate state, like "off", back to "powered on" state. Typically REST APIs will accept desired end state as value for a given property and it is thus not natural to model restart as value of power state property. In particular integrations with desired state systems could be made more difficult.</li>
+<li><strong>batch operations</strong> act upon multiple resources</li>
+<li><strong>complex queries</strong> require sophisticated specifications of projection, filter and pagination that may not be practical to include in a query string</li>
+</ol>
+<p>Industry experience also shows that sometimes modeling certain transition ought to happen through non-idempotent POST operation. (See <a href="http://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post">It is ok to use POST, R. Fielding, 2009</a>)</p>
+<p>Non-idempotent POST APIs may be susceptible to concurrency issues. Specific problem with non-idempotent APIs is that in case of network failure the client has to have way to recover through retrying the request or checking if the failed action has been enacted. It is recommended that <a href="#concurrency">optimistic concurrency control</a> is employed to avoid mid-air collisions.</p>
+<blockquote>
+<p>VERB-23: APIs MAY model interactions through HTTP POST when modeling through resource manipulation is not natural</p>
+<p>VERB-24: Interactions modeled via HTTP POST MUST specify the operation as query string in the URI and accept parameters in the message body</p>
+</blockquote>
+<p>Typical Patterns:</p>
+<ul>
+<li><strong>POST /{singleton}?action={action}</strong> - perform custom action on a singleton</li>
+<li><strong>POST /{resource collection}?action={action}</strong> - batch operation on a set e.g. /vcenter/vm?action=reset</li>
+<li><strong>POST /{resource collection}/{id}?action={action}</strong> - perform custom action on a resource representation e.g. /vcenter/vm/vm-24?action=reset</li>
+<li><strong>POST /{resource collection}/{id}/{sub-resource collection}/{sub-resource id}?action={action}</strong> - custom action on sub-resources e.g. /vcenter/vm/vm-15/disks/disk-2?action=snapshot.</li>
+</ul>
+<p>Success response status codes:</p>
+<ul>
+<li><strong>200 (Ok)</strong> in success completion case when document is returned</li>
+<li><strong>202 (Accepted)</strong> when operation is performed asynchronously and task (tracking resource) is returned.</li>
+<li><strong>204 (No Content)</strong> on success in case no message body is returned</li>
+</ul>
+<p>To illustrate the above a good example for POST API that does not fit well into CRUD is as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="err">POST https://{server}/vcenter/vm/{vm}/power?action=reset</span>
+</code></pre></div>
+<p>Batch example:</p>
+<div class="highlight"><pre><span></span><code><span class="err">POST /vcenter/vm?action=reset</span>
+<span class="err">{</span>
+<span class="err">    "ids" : ["vm-15", "vm-234", "vm-111"]</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>We should avoid this pattern when API is better modeled via CRUD manipulation. Consider the following poor example that is much cleaner represented with HTTP DELETE:</p>
+<div class="highlight"><pre><span></span><code><span class="err">POST /vcenter/vm/{vm}?action=delete</span>
+</code></pre></div>
+<h2 id="api-patterns">API Patterns<a class="headerlink" href="#api-patterns" title="Permanent link">¶</a></h2>
+<p>This chapter presents useful API modelling patterns.</p>
+<h3 id="long-running-operations">Long-running operations<a class="headerlink" href="#long-running-operations" title="Permanent link">¶</a></h3>
+<p>Often back end processing to achieve certain goal will exceed acceptable time limits for an HTTP request. In those cases APIs must define their interaction model to return fast from individual HTTP transactions and allow clients to monitor progress and obtain final result asynchronously. There are several design patterns that are commonly employed depending on the use case and product specifics. These include tasks (tracking resources), resource status, desired/realized state. API implementations may offer one of those or a combination. For example NSX is offering mix of tasks (tracking resources) and Desired/Realized state.</p>
+<p>There are some common good practices when exposing long-running operations</p>
+<blockquote>
+<p>PTRN-1: Clients MUST have an option to invoke a long-running API using one of the long-running operation models described above so that the client can implement for example, a responsive UI or pipelined automation script.</p>
+</blockquote>
+<p>From API implementer's view it is hard to assess the duration and reliability of given API operation as APIs may evolve to have more complex processing in future versions or clients may be on particularly unstable networks. It is thus expected that all mutation APIs should provide the option to start an operation with initial call and poll for progress and completions using subsequent requests. Certain APIs may provide additional option to wait for the result on the first request while others may only have the polling model.</p>
+<blockquote>
+<p>PTRN-2: Long-running APIs SHOULD perform as much as possible validation and report most errors during the initial interaction.</p>
+</blockquote>
+<h4 id="resource-state">Resource State<a class="headerlink" href="#resource-state" title="Permanent link">¶</a></h4>
+<p>One way to track completion of long-running operations on a resource is to provide resource state field or fragment that indicates if the resource is undergoing reconfiguration. This technique is used by <a href="http://developer.openstack.org/api-guide/compute/server_concepts.html#server-status">OpenStack Nova API</a>, <a href="http://build-squid.eng.vmware.com/build/mts/release/bora-3788284/publish/nsx-manager/api.html#Methods.GetLogicalSwitchState">NSX API</a>.</p>
+<p>A simple example of this type of APIs is OpenStack Nova server (virtual machine) provisioning. (See <a href="#example-openstack-nova-server-provisioning">full example</a>)</p>
+<ol>
+<li>End user requests new server via <code>POST /v2.1/servers</code></li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">POST http://os.vmware.com/v2.1/servers</span>
+</code></pre></div>
+<ol>
+<li>OpenStack returns skeleton object with self link to the server resource</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">202 Accepted</span>
+<span class="err">Location: http://os.vmware.com/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb</span>
+
+<span class="err">{</span>
+<span class="err">  "server":{</span>
+<span class="err">     "id":"b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">     "links":[</span>
+<span class="err">        {</span>
+<span class="err">           "href":"http://os.vmware.com/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">           "rel":"self"</span>
+<span class="err">           .........</span>
+</code></pre></div>
+<ol>
+<li>The server is in <code>BUILD</code> state</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">GET http://os.vmware.com/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb</span>
+
+<span class="err">200 OK</span>
+
+<span class="err">{</span>
+<span class="err">  "server":{</span>
+<span class="err">     "status":"BUILD",</span>
+<span class="err">     . . . .</span>
+<span class="err">  }</span>
+<span class="err">  . . . .</span>
+<span class="err">}</span>
+</code></pre></div>
+<ol>
+<li>Actual provisioning completes and server goes to <code>ACTIVE</code> state or if creation fails the server goes to <code>ERROR</code> state.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="err">GET http://os.vmware.com/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb</span>
+
+<span class="err">200 OK</span>
+
+<span class="err">{</span>
+<span class="err">  "server":{</span>
+<span class="err">     "status":"ACTIVE",</span>
+<span class="err">     ........</span>
+<span class="err">  }</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>In order to use this technique for create operations the back end services should be able to swiftly validate the request, allocate resource identifier, persist the entity description and return to the client. It is still possible that the actual creation in the backing system may fail due to conditions that cannot be validated upfront. If create failure is to occur the resource should be moved to ERROR state and the API client is then responsible to delete it or modify their requirement such that system can fulfill it.</p>
+<p>The state property may be included inside the resource document (OpenStack) or in a fragment (NSX). The fragment approach has the advantage that the status properties are cleanly separated from the desired state properties of a given resource.</p>
+<p>Example of state fragment for logical switch from NSX API</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET https://&lt;nsx-mgr&gt;/api/logical-switches/cc5ff938-6f09-4841-8f0f-294e86415472/state</span>
+
+<span class="err">Successful Response:</span>
+
+<span class="err">{</span>
+<span class="err">  "state" : "in_progress",</span>
+<span class="err">  "logical_switch_id": "cc5ff938-6f09-4841-8f0f-294e86415472",</span>
+<span class="err">  "details": [</span>
+<span class="err">    {</span>
+<span class="err">      "state" : "in_progress",</span>
+<span class="err">      "sub_system_id" : "366048ba-89d9-435e-ac2e-2c7cf6ed0f33",</span>
+<span class="err">      "sub_system_type" : "TransportNode"</span>
+<span class="err">    }</span>
+<span class="err">  ]</span>
+<span class="err">}</span>
+</code></pre></div>
+<h4 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">¶</a></h4>
+<p>This is the most widely used approach at VMware for dealing with long-running operations also employed by <a href="https://cloud.google.com/compute/docs/reference/latest/zoneOperations">Google Compute Engine</a>, some <a href="https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md#1325----operation-resource">Microsoft</a> and some <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">Amazon APIs</a>. The essence of the approach is to return HTTP 202 code and a tracking task resource to the API client after some basic request validation. Further the client can obtain progress updates and final operation status from the tracking resource.</p>
+<blockquote>
+<p>PTRN-3: Operation contracts MUST specify whether the operation return type is task or actual result.</p>
+</blockquote>
+<p>An API can provide two operations with different HTTP request signatures for API consumers to select between task and actual result return types.</p>
+<div class="highlight"><pre><span></span><code><span class="err">// Operation that will block the request until completion</span>
+<span class="err">POST /vm?action=power-off</span>
+
+<span class="err">// Operaiton with task</span>
+<span class="err">POST /vm?action=power-off&amp;vmw-async=true</span>
+</code></pre></div>
+<p>There are two ways to include tasks in operation contracts</p>
+<ol>
+<li><strong>Client preference</strong> in NSX API clients may request task to be used for any API operation by passing additional "vmw-async" query parameter in the request. This model allows API clients to assess the risks of network issues or ability to retry given call and make choice if the added overhead of polling is worth it.</li>
+<li><strong>API designer preference</strong> for some APIs the complexity of an operation may be such that it will rarely complete in one HTTP request/response cycle. In those cases API designer may declare an API to explicitly return only tasks and not have option of execution in single request/response.</li>
+</ol>
+<blockquote>
+<p>PTRN-4: The task resource SHOULD contain at minimum the following information:</p>
+<ul>
+<li>state of the operation - at minimum the following states need to be present &gt; - running, success, error</li>
+<li>creation time of the task</li>
+<li>completion time of the task</li>
+<li>error object if the task execution fails</li>
+<li>identifier of the resource upon which the tracked operation is working.</li>
+<li>the operation-specific result of the invoked operation</li>
+</ul>
+</blockquote>
+<p>The results of many write operations in REST API are void or single resource identifier. In those cases pointer to the resource upon which the task operation is carried out suffices. Clients can use subsequent <code>GET</code> operation on the modified resource to learn more.</p>
+<p>Some REST operations produce actual return payload e.g. complex queries (reports). When those are executed using tasks the response field is to contain the actual operation result. The type of object included in the response should be identified with a type discriminator, so API clients know how to interpret it (see <a href="#objects">Objects</a>). The result may be embedded in the task resource or provided as separate fragment resource e.g. <code>GET /api/tasks/{task-id}/response</code>. When the result is embedded in the task resource the task read operation may allow clients to request or suppress inclusion of result field.</p>
+<p>Example of task from NSX API</p>
+<div class="highlight"><pre><span></span><code><span class="err">Request:</span>
+<span class="err">GET https://&lt;nsx-mgr&gt;/api/tasks/ab265781-c826-4da7-9487-48a5c713a481</span>
+
+<span class="err">Response:</span>
+<span class="err">200 OK</span>
+
+<span class="err">{</span>
+<span class="err">  "progress" : 100,</span>
+<span class="err">  "id" : "ab265781-c826-4da7-9487-48a5c713a481",</span>
+<span class="err">  "end_time" : 1416959364977,</span>
+<span class="err">  "status" : "success",</span>
+<span class="err">  "async_response_available" : false,</span>
+<span class="err">  "cancelable" : false,</span>
+<span class="err">  "start_time" : 1416959362874</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>Example of task response fragment from NSX API for a Transport Zone creation operation. The <code>resource_type</code> field tells the client the type of entity returned</p>
+<div class="highlight"><pre><span></span><code><span class="err">Request:</span>
+<span class="err">GET /api/tasks/860f8b82-7983-4274-b275-ccdebb666ec7/response</span>
+
+<span class="err">Response:</span>
+<span class="err">{</span>
+<span class="err">    "resource_type": "TransportZone",</span>
+<span class="err">    "description": "Transport Zone 1",</span>
+<span class="err">    "id": "a3097a9b-6429-499d-af21-7ae2bea5b1b9",</span>
+<span class="err">    "display_name": "tz1",</span>
+<span class="err">    "host_switch_name": "test-host-switch-1",</span>
+<span class="err">    "transport_type": "OVERLAY",</span>
+<span class="err">    "transport_zone_profile_ids": [</span>
+<span class="err">        {</span>
+<span class="err">            "profile_id": "52035bb3-ab02-4a08-9884-18631312e50a",</span>
+<span class="err">            "resource_type": "BfdHealthMonitoringProfile"</span>
+<span class="err">        }</span>
+<span class="err">    ],</span>
+<span class="err">    "_create_time": 1474469755392,</span>
+<span class="err">    "_last_modified_user": "admin",</span>
+<span class="err">    "_system_owned": false,</span>
+<span class="err">    "_last_modified_time": 1474469755392,</span>
+<span class="err">    "_create_user": "admin",</span>
+<span class="err">    "_revision": 0,</span>
+<span class="err">    "_schema": "/api/schema/TransportZone"</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>List of recent tasks is often displayed in user interfaces.</p>
+<blockquote>
+<p>PTRN-5: Service MAY implement task collection resource. The task collection SHOULD allow sorting and filtering tasks.</p>
+</blockquote>
+<p>Example from NSX API</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET /api/tasks</span>
+</code></pre></div>
+<blockquote>
+<p>PTRN-6: As long-running operations may be taking up valuable system resources API to request task cancellation MAY be implemented</p>
+</blockquote>
+<p>It is up to the backend system to decide if task cancellation is to be honored or not.</p>
+<p>Example from NSX API</p>
+<div class="highlight"><pre><span></span><code><span class="err">POST /api/node/tasks/{task-id}?action=cancel</span>
+</code></pre></div>
+<p>Additional utility APIs for easier communication of the task changes may be implemented for example push APIs or long poll APIs.</p>
+<p>See <a href="https://www.vmware.com/support/nsxt/doc/nsxt_20_api.html?ClickID=asltttsakzzlnwp9lzs0sl550rtata0onlnw#Sections.Api%20Services.Task%20Management">NSX Task Management API</a></p>
+<h3 id="file-transfers">File Transfers<a class="headerlink" href="#file-transfers" title="Permanent link">¶</a></h3>
+<p>It is not uncommon for control and management APIs to require file or data transfer functionality. Such use cases include certificate files, configuration files, installation images, screenshots etc. This chapter contains guidance how to expose file &amp; large data transfer functionality in standard compliant and uniform manner.</p>
+<p>File transfer API is alternative to embedding base64 encoded binary content inside API JSON documents. As a rule of thumb large pieces of data need to use file transfer. File transfer semantics allow developers to recognize the demand for optimizing memory use. For example REST client implementations may assume JSON payloads fit in RAM while file transfers be streamed to disk before processing.</p>
+<blockquote>
+<p>PTRN-7: Binary data larger than several KiBs (at most 100KiB) MUST use file transfer pattern instead of embedding content in JSON</p>
+</blockquote>
+<h4 id="file-or-data-download">File or Data Download<a class="headerlink" href="#file-or-data-download" title="Permanent link">¶</a></h4>
+<p>Download is natural for the HTTP protocol and REST APIs. Download functionality is implemented by setting the appropriate media type of response and returning the file payload in the response body.</p>
+<p>Depending on the requirements download could be initiated with <a href="#get">GET</a> or <a href="#post-non-crud-operations">POST (non-CRUD)</a> operation.</p>
+<blockquote>
+<p>PTRN-8: Downloads SHOULD be tied to GET or POST (non-CRUD) operations</p>
+</blockquote>
+<p>Download of multiple pieces of data or files can be achieved using popular archive format like zip or by exposing a resource containing hyperlinks to downloadable files.</p>
+<h4 id="file-or-data-upload">File or Data Upload<a class="headerlink" href="#file-or-data-upload" title="Permanent link">¶</a></h4>
+<p>Uploads are typically bound to HTTP <a href="#put">PUT</a> or <a href="#post-non-crud-operations">POST (non-CRUD)</a> operations.</p>
+<blockquote>
+<p>PTRN-9: Uploads SHOULD be tied to PUT or POST (non-CRUD) operations</p>
+<p>PTRN-10: Upload endpoints SHOULD accept requests with the appropriate media types e.g. <code>application/octet-stream</code>, <code>image/jpeg</code>, <code>application/xml</code> etc.</p>
+</blockquote>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="err">PUT /vcenter/nsx/appliance/image</span>
+<span class="err">content-type: application/octet-stream</span>
+</code></pre></div>
+<blockquote>
+<p>PTRN-11: Multiple file upload APIs SHOULD use POST and <code>multipart/form-data</code> media type as defined in <a href="https://tools.ietf.org/html/rfc7578#section-4.3">RFC 7578</a>.</p>
+</blockquote>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="err">POST /vcenter/nsx/appliance/images</span>
+<span class="err">content-type: multipart/form-data; boundary=----content-273def1ef51c</span>
+<span class="err">content-length: 12345671</span>
+
+<span class="err">------content-273def1ef51c</span>
+<span class="err">content-disposition: form-data; name="files"; filename="settings.xml"</span>
+<span class="err">content-type: application/xml</span>
+<span class="err">content-length: 45670</span>
+
+<span class="err">[[File content here]]</span>
+<span class="err">------content-273def1ef51c</span>
+<span class="err">content-disposition: form-data; name="files"; filename="image.ova"</span>
+<span class="err">content-type: application/vmware</span>
+<span class="err">content-length: 12299800</span>
+
+<span class="err">[[File content here]]</span>
+<span class="err">------content-273def1ef51c</span>
+</code></pre></div>
+<p>See also:</p>
+<ul>
+<li><a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#considerations-for-file-uploads">OpenAPI 3.0 — considerations for file uploads</a></li>
+<li><a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md#special-considerations-for-multipart-content">OpenAPI 3.0 — considerations for multipart content</a></li>
+<li><a href="https://swagger.io/docs/specification/describing-request-body/file-upload/">OpenAPI file upload guidelines</a></li>
+<li><a href="https://swagger.io/docs/specification/describing-request-body/multipart-requests/">OpenAPI multipart request guidelines</a></li>
+</ul>
+<h3 id="api-errors">API Errors<a class="headerlink" href="#api-errors" title="Permanent link">¶</a></h3>
+<blockquote>
+<p>PTRN-12: Errors reported by APIs MUST use the HTTP Response Status Code semantics <a href="https://tools.ietf.org/html/rfc7231#section-6">RFC 7231 Section 6 HTTP Response Status Codes</a></p>
+</blockquote>
+<p>Errors reported through the API must respect the HTTP Response Code semantics. This guarantees that widest range of clients can handle the error conditions in appropriate manner such as report the error to the end user, retry the operation later, remove non-existent entries from cache etc..</p>
+<p>There may be need for some additional consideration when selecting an error code. For example to prevent leakage of information about resource existence <strong>404 Not Found</strong> error may be reported when user lacks visibility of a resource. <strong>403 Forbidden</strong> may be reported when user has visibility of a resource and specific action on the resource is disallowed e.g. deleting the resource. (See <a href="https://tools.ietf.org/html/rfc7231#section-6.5.3">RFC 7231, Section 6.5.3. 403 Forbidden</a>)</p>
+<blockquote>
+<p>PTRN-13: Error payload SHOULD contain additional error identification details</p>
+</blockquote>
+<p>In many scenarios the HTTP response code semantics are insufficient to communicate in sufficient detail the nature of the error that has occurred. API authors should add a member in the error payload that disambiguates such conditions.</p>
+<blockquote>
+<p>PTRN-14: Error payload SHOULD contain appropriate error messages</p>
+</blockquote>
+<p>VMware software is often used in data center context by system administrators and when errors occur it is important to report sufficient detail about the error to enable troubleshooting. Thus it is important to include human readable messages in the error payload.</p>
+<p>Localization is particular concern with error messages in APIs. With REST APIs at VMware we have adopted several distinct approaches to localizing error messages:</p>
+<ul>
+<li><strong>API Server</strong> localizes - in this case the client sends desired locale in a <strong>Accept-Language</strong> header. The server generates the messages in the desired locale and sends them back. (See <a href="https://pubs.vmware.com/vca/index.jsp?topic=%2Fcom.vmware.vcloud.api.doc_56%2FGUID-0EAF1523-CA02-41FC-A7F3-B103108F5E4A.html">vCloud Air API - vCloud API REST Requests</a>)</li>
+<li><strong>API client</strong> localizes - in this case the API returns message keys and parameters. The API client has to download localization bundles, look up the received message keys and format the parameters in the message.</li>
+<li><strong>Combined</strong> (recommended) - In this case the API returns both localized messages, message keys and parameters necessary for delayed localization</li>
+</ul>
+<p>Server side localization is obvious choice when creating system administrator focused user interfaces. This approach is not very usable if the API is invoked through a workflow solution that may need to report errors at a later time possibly in a yet to be determined locale.</p>
+<p>To cater for the complex cloud stack that includes workflow solutions client side localization is useful. For example vRealize Automation can store messages from vCenter and ESX for a specific failed service request. vRA could then present the error messages to a system administrator in their desired locale at later point of time.</p>
+<p>The client side localization approach makes it simpler to code service oriented application where the actual execution and potential error messages may originate from various services.</p>
+<p>Thus we suggest that VMware REST APIs allow for both mechanisms to exist simultaneously. It is acceptable to have the server side localization done in one locale fixed per product or deployment.</p>
+<blockquote>
+<p>PTRN-15: Error payload MAY contain additional data relevant to the error</p>
+</blockquote>
+<p>Error handling code often depends on certain supplementary data. Such data may at the discretion of the API designer be added to the error payload and SHOULD be appropriately documented.</p>
+<p>Below is example error response following the above rules:</p>
+<div class="highlight"><pre><span></span><code><span class="nf">POST</span> <span class="nn">/tagging/tag</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+
+{
+   "name" : "test"
+}
+
+
+HTTP/1.1 400 Bad Request
+
+{
+    "messages": [
+        {
+            "id": "vapi.invoke.input.invalid",
+            "default_message": "Unable to validate input to method com.vmware.cis.tagging.tag.create",
+            "args": [
+                "com.vmware.cis.tagging.tag.create"
+            ]
+        },
+        {
+            "id": "vapi.data.structure.field.invalid",
+            "default_message": "Found invalid field create_spec in structure.",
+            "args": [
+                "create_spec"
+            ]
+        },
+        {
+            "id": "vapi.data.structure.field.missing",
+            "default_message": "Structure 'com.vmware.cis.tagging.tag.create_spec' is missing a field: description",
+            "args": [
+                "com.vmware.cis.tagging.tag.create_spec",
+                "description"
+            ]
+        }
+    ],
+    "type": "com.vmware.vapi.std.errors.invalid_argument"
+}
+</code></pre></div>
+<h4 id="error-response-codes">Error Response Codes<a class="headerlink" href="#error-response-codes" title="Permanent link">¶</a></h4>
+<p><a href="https://tools.ietf.org/html/rfc7231#section-6.5">Section 6.5 of RFC 7231</a> provides explanations of which response codes are appropriate in various error conditions. The RFC texts are domain agnostic and on many occasions further guidance to the use of HTTP codes is required. This section of the standard further clarifies the use of HTTP response codes for API design at VMware by discussing domain specific scenarios.</p>
+<p>In the absence of explicit guidance, RFC 7231 is considered authoritative.</p>
+<blockquote>
+<p>PTRN-16: APIs MUST respond with 403 when functionality is unavailable due to licensing</p>
+</blockquote>
+<p>If an API client makes a request requiring functionality that is available in some instances of the service but is not available in the requested instance because the current license does not support it, use a 403 response to indicate that access to the feature is currently forbidden.</p>
+<h2 id="api-documentation">API Documentation<a class="headerlink" href="#api-documentation" title="Permanent link">¶</a></h2>
+<blockquote>
+<p>DOC-1: There MUST be an API guide for the product which is delivered via the company web site without requiring access to the product so a customer can review the API without access to the product itself (i.e. on an airplane).</p>
+<p>DOC-2: There MUST be API documentation delivered as part of the product. This SHOULD be delivered as a URI available on the product's management system web server and SHOULD be linked from the help section of the GUI.</p>
+<p>DOC-3: The intended audience of the API guide are developers or operators intending to automate or integrate. The API guide is generally considered a reference document describing how to use the API and any relevant contracts about the behavior of the API. The API guide SHOULD NOT be a detailed document about how a feature or component is used and how it inter-operates with other system capabilities. This information is useful to the overall user base and SHOULD be in the administration guide.</p>
+<p>DOC-4: API examples MAY be delivered as part of developer network code examples and MAY be in the API guide.</p>
+<p>DOC-5: To save in effort and reduce the chance of errors the API guide MUST be automatically generated upon the build of the product.</p>
+<p>DOC-6: The API guide MUST document all publicly facing API resources and methods.</p>
+<p>DOC-7: There SHOULD be a general "how to use the API" section at the start of the API Guide document.</p>
+<p>DOC-8: There MUST be a way to search the API guide. If delivered in a chapter format this search MUST search across all chapters. If a single page in browser then the search MAY use the built in browser search. If delivered in a PDF then the search MAY use the built in PDF reader search.</p>
+<p>DOC-9: All deprecated API resources, methods, call, etc MUST be documented as such.</p>
+<p>DOC-10: Each resource SHOULD have a "released in" or "introduced in" field in the documentation.</p>
+<p>DOC-11: All API docs that are written by development SHOULD be approved by the documentation team.</p>
+<p>DOC-12: API doc styling SHOULD match the corporate standards in terms of colors, fonts, borders, etc.</p>
+<p>DOC-13: Some API documentation MAY be considered private or for registered partners only. These APIs MUST be documented in a separate API guide(s) and released only through appropriate channels i.e. the VMware developer center web site.</p>
+<p>DOC-14: The API guide SHOULD describe all error codes that could be experienced when operating the product and an associated description of the error code.</p>
+</blockquote>
+<h2 id="api-evolution">API Evolution<a class="headerlink" href="#api-evolution" title="Permanent link">¶</a></h2>
+<p>The fundamental goal is that evolving an API and its implementation should not break existing client code that is being used by VMware's customers or other VMware products. The value of VMware's products stems from operating together in an integrated environment with other VMware and partner products. When VMware releases a new product version that breaks this integrated environment customers will not be able upgrade. Such incidents are costly for customers, partners, and VMware.</p>
+<p>The best way to avoid breaking of existing client code is to only make backward compatible changes to the API definition and its implementation. Those changes include:</p>
+<ul>
+<li>Adding new resource URI</li>
+<li>Adding new HTTP verb on existing resource URI</li>
+<li>Adding new optional parameter (member of JSON body, header or query parameter)</li>
+<li>Adding new response element (member of JSON body, header parameter)</li>
+</ul>
+<p>Note that while many "additive" changes (e.g. new resources, new operations) are clearly backward compatible, additions to data structures (request/response bodies in REST) are a little more subtle. Additions to output data structures (response bodies in REST) are backward compatible, assuming that client code (including the de-serialization code used by the stubs) will ignore data they don't understand. Additions to input data structure (request bodies in REST) must be optional additions. Additions to HTTP PUT body data structures even when optional may introduce backwards incompatible behavior. In other words requests from old clients (that won't include the additions)must be accepted by the server and treated exactly as they were earlier.</p>
+<p>While we strongly discourage evolving the API and its implementation in ways that are not backward compatible and it should be avoided when there are alternatives, there are situations where there is no other alternative. To avoid breaking existing client code that is being used by VMware's customers when making incompatible changes to the API definition and its implementation, we need to communicate our intentions to our customer and partners and stage the changes in a way that allows them to migrate with us. Typically this involves:</p>
+<ul>
+<li>Making the new API available so that client developers can use it, while continuing to support the existing API.</li>
+<li>Documenting that the existing API is being deprecated and the the new API should be used instead</li>
+<li>Continuing to support the existing (deprecated) API for a period of time sufficient for the developers of the client code to switch to the new API and release new versions of the clients that don't use the deprecated API.</li>
+<li>Remove support for the deprecated API.</li>
+</ul>
+<p>Thus the formal requirements are:</p>
+<blockquote>
+<p>VER-1: API changes between versions MUST only include (1) Expanding the API surface in backwards compatible manner AND (2) Removing deprecated APIs when absolutely necessary and approved by product management.</p>
+</blockquote>
+<p>When an application is pointed to a REST API endpoint it is important for the application to know the version of API it is interacting with so as to select appropriate behavior. For example an API client built against release 7 has to avoid APIs added in release 7 when talking to release 6. The standard practice at VMware is to expose a resource that contains the version of the product and its API (<a href="http://pubs.vmware.com/vsphere-6-5/index.jsp?topic=%2Fcom.vmware.wssdk.pg.doc%2FPG_Client_App.5.6.html">See Multiple Versions of vSphere API</a>)</p>
+<blockquote>
+<p>VER-2: APIs MUST expose a resource that clearly identifies the current API version</p>
+</blockquote>
+<p>Removing APIs introduces risk to product interoperability. It should be based on careful business analysis possibly using telemetry data. In essence removal of an API however unimportant it may seem makes the whole system API incompatible with prior releases and renders all existing VMware and 3rd party solutions incompatible until re-certified.</p>
+<h3 id="dealing-with-incompatible-changes">Dealing with incompatible changes<a class="headerlink" href="#dealing-with-incompatible-changes" title="Permanent link">¶</a></h3>
+<p>Sometimes substantial changes need to be made to existing resources that cannot be represented only as adding new properties and/or operations to existing resources. Such changes should be introduced as new APIs while the existing APIs preserve their compatible syntax and behavior.</p>
+<p>Introducing such new APIs depending on the scope of change may be limited to a single resource or as big as introducing new API for a given component.</p>
+<blockquote>
+<p>VER-3: Incompatible changes MUST be exposed under new URI and http verb combinations there by preserving the compatibility of prior APIs. Incompatible changes MUST NOT be introduced under same URI and verb combination using HTTP header.</p>
+</blockquote>
+<p>For example if one needs to introduce incompatible change to virtual machine migrate <code>POST /vm/{vm-id}?action=migrate</code> one should implement a new operation e.g. <code>POST /vm/{vm-id}?action=relocate</code>. This approach has been used widely in the industry e.g. Java introduced <code>ArrayList</code> in order to augment in incompatible way the behavior of <code>Vector</code>.</p>
+<p>In a different example if the vCenter content library component is to replace the local library concept with subscribable library leading to ripple changes to many other bits of the API it may be better to introduce the changes under new path as a brand new API set. For example the transition could be from <code>/content/local-library</code> to <code>/content/subscribable-library</code>. This later example should be used only in cases where major product changes are to happen e.g. merging two product lines. It is not acceptable to wholesale clone APIs for minor changes e.g. new fields to few resources. Industry example of this approach are Microsoft Azure APIs where the <em>classic</em> APIs were improved in the <em>normal</em> APIs. Another industry example is the evolution of Jackson API where new versions use new name space.</p>
+<h3 id="api-versioning">API Versioning<a class="headerlink" href="#api-versioning" title="Permanent link">¶</a></h3>
+<p>The goal of API versioning is to help managing the impact of breaking changes. When a large scale re-architecture of a product is taking place it is likely that impact on API will span multiple resources. API providers may choose to host the new APIs under a new semantically named hierarchy. Alternatively, often when dealing with a natural iteration of an existing API, API Providers may choose to adopt a versioning scheme on top of the existing semantical hierarchy.</p>
+<p>Following the general intent of this Standard, REST API versioning strives for achieving alignment across VMware products, while minimizing the effort required for adopting the new guidelines. This means that, in areas where there is more than one acceptable option, the Standard is biased towards the option that requires the least effort for adoption. As it currently stands, majority of VMware products either do not version REST APIs or version REST APIs using a versioning scheme, where the version information is present in a URI path segment, also referred as URI-based versioning. URI-based versioning is accepted as a standard pattern by multiple companies, such as Google and Microsoft, and is widely adopted by a large population of REST APIs. Hence, this Standard calls for adoption of URI-based versioning.</p>
+<blockquote>
+<p>VER-4: REST APIs SHOULD include version information in a URI path segment by using the lowercase letter 'v' followed by a string representing the REST API version.</p>
+</blockquote>
+<p>Using versions in URLs from the beginning is not required. APIs can adopt URI-based versioning whenever the need for that arises. API providers are not required to introduce versioning into existing APIs merely to comply with the guidelines. Instead, it is recommended to align with the versioning guidelines when a backward incompatible API change is introduced.</p>
+<blockquote>
+<p>VER-5: Released/GA versions of REST APIs MUST be represented by a single integer following the lowercase letter 'v', for example, 'v2'.</p>
+</blockquote>
+<p>Early/pre-GA versions may follow these conventions to clarify the in-development state of an API, for example:</p>
+<p>version</p>
+<p>description</p>
+<p>v2alpha</p>
+<p>Alpha release of version 2</p>
+<p>v2beta1</p>
+<p>Beta 1 release of version 2</p>
+<blockquote>
+<p>VER-6: Existing REST APIs that are not versioned MUST be considered version 1 (v1). If a new incompatible change is introduced using URI-based versioning it SHOULD start from version 2 (v2).</p>
+</blockquote>
+<p>This is to accept the possibility that the existing, non-versioned API can be perceived by API consumers as version 1. Hence, the next explicitly versioned API should be bumped up to version 2 to avoid confusion.</p>
+<blockquote>
+<p>VER-7: REST APIs MUST NOT use a different version negotiation mechanism, such as Accept and Content-Type headers or query parameters.</p>
+</blockquote>
+<p>The reason behind this is alignment and bias towards minimization of effort, as well as compatibility with commonly used interface definition languages (IDLs) and frameworks, such as VMODL2, OpenAPI 2.0 and 3.0. As mentioned above, most of the existing APIs either use URI-based versioning or do not version REST APIs. Alternative versioning approaches, such as supplying version information using a query parameter, are not natively supported by IDLs, such as OpenAPI 3.0.</p>
+<p>API providers are expected to align with the versioning standard when a new backward incompatible version is introduced. In such situations, it is the responsibility of the API provider to collaborate with the SDK team on communicating the change of the API versioning scheme to the developer community.</p>
+<blockquote>
+<p>VER-8: REST API versions MUST NOT be coupled with product or implementing service versions.</p>
+</blockquote>
+<p>REST API version is expected to change out of absolute necessity, at a much slower pace than product or implementing service versions. An example of that could be the necessity to introduce a breaking change or completely re-architect an existing API. These conditions are expected to be extremely rare as the REST API matures and gets adoped by consumers. In typical scenarios changes to APIs are expected to be backward compatible and should not require REST API version changes.</p>
+<blockquote>
+<p>VER-9: REST APIs URIs SHOULD be formatted in the following way: <code>http[s]://&lt;authority&gt;/[api/][&lt;namespace&gt;/][&lt;version&gt;/]&lt;path&gt;</code>
+Where:</p>
+<ul>
+<li>authority - <code>[userinfo@]host[:port]</code>. A single authority can be shared among multiple API providers.</li>
+<li>namespace - (optional) An arbitrary name pre-registered by an API provider as a grouping for a subset of APIs.</li>
+<li>version - The lowercase letter 'v' followed by a version identifier, for example: 'v3'.</li>
+</ul>
+</blockquote>
+<p>Namespaces may be omitted if the feature set is uniquely identified by the authority and the entire set of REST APIs hosted under the root level is expected to be versioned together.</p>
+<blockquote>
+<p>VER-10: REST API URIs SHOULD use <code>/api</code> as a URI path segment if explicit separation of API paths from non-API paths is required.</p>
+</blockquote>
+<p>The use of <code>/api</code> URI path segment is not necessary if such separation is clear from the API root or the namespace. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="err">    https://api.vmware.com/namespace/v1/path</span>
+</code></pre></div>
+<p>If the base URL is shared between API and non-API resources, the use of the <code>/api</code> URI path segment is recommended.</p>
+<div class="highlight"><pre><span></span><code><span class="err">    https://vmc.vmware.com/api/namespace/v1/path</span>
+</code></pre></div>
+<blockquote>
+<p>VER-11: REST API versioning MAY be managed at an individual namespace level.</p>
+</blockquote>
+<p>Considering the differences in product and feature release cadence, some products or services may run into the need to change the REST API version while others may not. Namespaces provide a level of separation between groups of APIs.</p>
+<p>APIs under a specific namespace can be versioned independently. It is expected to have varying versions of APIs behind the same authority, for example:</p>
+<div class="highlight"><pre><span></span><code><span class="err">https://gateway.vmware.com/api/namespace-a/v1/policies</span>
+<span class="err">https://gateway.vmware.com/api/namespace-b/v2/resources</span>
+</code></pre></div>
+<blockquote>
+<p>VER-12: Any version of a REST API MUST be complete and self contained and MUST NOT depend on other versions of the same REST API.</p>
+</blockquote>
+<p>When a new version of a REST API under a specific namespace is introduced, it must include all the features and capabilities and must not rely on the existence or make references to a different, such as older, version of the same API. APIs under different namespaces are versioned independently and can refer to each other.</p>
+<h2 id="api-breaking-changes-and-deprecation">API Breaking Changes and Deprecation<a class="headerlink" href="#api-breaking-changes-and-deprecation" title="Permanent link">¶</a></h2>
+<p>APIs are the capability that make a product larger than itself. They are the gateway to becoming an integrated part of a much larger ecosystem. This not only represents a large strategic value to VMware, but also a substantial risk to our customer's ecosystem that relies on our APIs to run their business. Customers also recognize this importance which is why there is an ever-increasing demand for a consistent deprecation (including all breaking changes) experience across all VMware products and services that they use. Because of this strategic need, VMware has standardized (via <a href="https://confluence.eng.vmware.com/x/4mF1M">the BOSS Forum</a>) on an universal, enterprise-wide API deprecation policy as summarized below. The formal standardization overview with all the details can be found <a href="https://confluence.eng.vmware.com/x/8qO6M">here</a>. This standard puts VMware in-line with industry practice of 12 months as seen in AWS, GCP and the Kubernetes Project. In future we may strengthen this promise to match VMware peers such as Azure and Salesforce.com with as long as 2 year deprecation periods.</p>
+<blockquote>
+<p>DR-1: Public APIs MUST be registered with developer.vmware.com along with associated lifecycle phase for each endpoint.</p>
+</blockquote>
+<p>This enterprise-wide requirement ensures that customer-facing APIs are clearly presented to customers and sets the appropriate expectation around the lifecycle phase of each API. This also allows product teams to clearly deliniate between Generally Available (GA)/Supported APIs, and those in an Unsupported/Pre-GA phase such as Beta or Experimental.</p>
+<blockquote>
+<p>DR-2: A 12-month advance End-of-Life (EOL) notice MUST be given for all breaking changes on APIs in a Supported/Generally Available (GA) state.</p>
+</blockquote>
+<p>With the clarity around which APIs are Supported/Generally Available (GA), VMware will be delivering contractual assurances to customers of 12-months advance notice before introducing a breaking change to all Supported/GA APIs. This advance notice will be limited to Supported/GA APIs; there is no guarantee associated with Pre-GA/Unsupported/Experimental APIs to allow product teams engineering agility early in the lifecycle of each API.</p>
+<blockquote>
+<p>DR-3: Customer notification of pending End-of-Life (EOL) or breaking changes MUST be given via Product Line Release Notes which starts the 12-month period</p>
+</blockquote>
+<p>While notice of API deprecation inside of an OpenAPI/Swagger Spec or other method is welcomed, there is a baseline requirement to notify VMware customers of pending API deprecation in the Product Line Release Notes. Publication of this document starts the clock on the 12-month period before introducing the breaking change.</p>
+<blockquote>
+<p>DR-4: Responses from deprecated APIs MAY use the <code>Deprecation</code> HTTP header to signal their API lifecycle status</p>
+</blockquote>
+<p>In addition to the above VMware wide policy authors of REST APIs may use the <code>Deprecation</code> and related headers defined in <a href="https://datatracker.ietf.org/doc/html/draft-ietf-httpapi-deprecation-header">The Deprecation Header Field</a> candidate RFC to convey details about the API deprecation status and expected sunset date.</p>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>  Deprecation: Sun, 11 Nov 2020 23:59:59 GMT
+  Sunset: Wed, 11 Nov 2021 23:59:59 GMT
+  Link: &lt;https://api.example.com/v2/customers&gt;; rel="successor-version",
+        &lt;https://developer.example.com/deprecation&gt;; rel="deprecation"
+</code></pre></div>
+<p><em><strong>Note</strong></em>: Once the RFC is approved this guideline will change to SHOULD and be updated according to the published RFC.</p>
+<p><em><strong>Note</strong></em>: This requirement is not part of the VMware enterprise policy.</p>
+<h2 id="appendix-a-reviewer-committee">Appendix A - Reviewer Committee<a class="headerlink" href="#appendix-a-reviewer-committee" title="Permanent link">¶</a></h2>
+<h3 id="v-10">v 1.0<a class="headerlink" href="#v-10" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Christos Karamanolis</td>
+<td>Mitesh Pancholy</td>
+<td>Alan Renouf</td>
+</tr>
+<tr>
+<td>Gordon Good</td>
+<td>Greg Burk</td>
+<td>Kostadis Roussos</td>
+</tr>
+<tr>
+<td>Jim Stabile</td>
+<td>Chris Wagner</td>
+<td>Jeff Hu</td>
+</tr>
+<tr>
+<td>Alain Dumesny</td>
+<td>Pallavi Pangarkar</td>
+<td>Asaf Kariv</td>
+</tr>
+<tr>
+<td>Ken Ringdahl</td>
+<td>Andrew Voltmer</td>
+<td>Shaomin Chen</td>
+</tr>
+<tr>
+<td>Dale Olds</td>
+<td>Gopala Suryanarayana</td>
+<td>Robert Bosch</td>
+</tr>
+<tr>
+<td>Christophe Decanini</td>
+<td>Emad Benjamin</td>
+<td>William Lam</td>
+</tr>
+<tr>
+<td>Yashika Deva</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="v-20">v 2.0<a class="headerlink" href="#v-20" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tim Binkley-Jones</td>
+<td>Jeff Hu</td>
+<td>Gordon Good</td>
+</tr>
+<tr>
+<td>Kashfat Khan</td>
+<td>Keith Farkas</td>
+<td>Yashika Deva</td>
+</tr>
+<tr>
+<td>Yavor Boychev</td>
+<td>Ravi Soundararajan</td>
+<td>Tim Whiffen</td>
+</tr>
+<tr>
+<td>Steven McAllister</td>
+<td>Karthik Murthy</td>
+<td>Brian Williams</td>
+</tr>
+<tr>
+<td>Dylan Thomas</td>
+<td>Fanny Strudel</td>
+<td>Kostadis Roussos</td>
+</tr>
+<tr>
+<td>Christian Dickmann</td>
+<td>Jason Chu</td>
+<td>Suren Balikyan</td>
+</tr>
+<tr>
+<td>Karthik Seshadri</td>
+<td>Eduard Zakaryan</td>
+<td>Zahari Ivanov</td>
+</tr>
+<tr>
+<td>Ina Uzunova</td>
+<td>Alex Rankov</td>
+<td>Eddie Dinel</td>
+</tr>
+<tr>
+<td>Patrick Barker</td>
+<td>George Dimitrov</td>
+<td>Peter Canning</td>
+</tr>
+<tr>
+<td>Martin Cvetanov</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Document Editors - Kiril Karaatanassov, Avetik Hovhannisyan</p>
+<h2 id="appendix-b-additional-examples">Appendix B - Additional Examples<a class="headerlink" href="#appendix-b-additional-examples" title="Permanent link">¶</a></h2>
+<h3 id="partial-update-using-list-of-instructions">Partial Update Using List of Instructions<a class="headerlink" href="#partial-update-using-list-of-instructions" title="Permanent link">¶</a></h3>
+<p>Example for partial update using list of instructions from <a href="https://tools.ietf.org/html/rfc6902#appendix-A.4">RFC 6902</a></p>
+<div class="highlight"><pre><span></span><code>An example target JSON document:
+
+   { "foo": [ "bar", "qux", "baz" ] }
+
+A JSON Patch document:
+
+   [
+     { "op": "remove", "path": "/foo/1" }
+   ]
+
+The resulting JSON document:
+
+   { "foo": [ "bar", "baz" ] }
+</code></pre></div>
+<h3 id="example-xenon-response">Example Xenon Response<a class="headerlink" href="#example-xenon-response" title="Permanent link">¶</a></h3>
+<p>The <code>document*</code> fields are system properties in the following Xenon response. Those are generated by the framework.</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span><span class="p">{</span>
+<span class="w">       </span><span class="nt">"enumerationServiceReference"</span><span class="p">:</span><span class="s2">"http://172.20.0.221:62041/common/node-groups/default"</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"enumerationAgentReference"</span><span class="p">:</span><span class="s2">"jsonrpc://172.20.0.221:62042"</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"systemInfo"</span><span class="p">:{</span>
+<span class="w">          </span><span class="nt">"properties"</span><span class="p">:{</span>
+
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">"environmentVariables"</span><span class="p">:{</span>
+
+<span class="w">          </span><span class="p">},</span>
+<span class="w">          </span><span class="nt">"availableProcessorCount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"freeMemoryByteCount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"totalMemoryByteCount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"maxMemoryByteCount"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">"ipAddresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">             </span><span class="s2">"172.20.0.221"</span>
+<span class="w">          </span><span class="p">]</span>
+<span class="w">       </span><span class="p">},</span>
+<span class="w">       </span><span class="nt">"status"</span><span class="p">:</span><span class="s2">"UNKNOWN"</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"serverId"</span><span class="p">:</span><span class="s2">"87084a1d-8d77-4295-aef4-f6bb957995d1"</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"isRefreshRequired"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"documentSignature"</span><span class="p">:</span><span class="s2">"4322961ce952655c9ba7345e448e556a602e2c934c6f56ee72d1c07fb85907fe"</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"documentUpdateTimeMicros"</span><span class="p">:</span><span class="mi">1407472558278011</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"documentVersion"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"documentKind"</span><span class="p">:</span><span class="s2">"com/dcentralizedsystems/services/peernodestate"</span><span class="p">,</span>
+<span class="w">       </span><span class="nt">"documentSelfLink"</span><span class="p">:</span><span class="s2">"/common/node-groups/default/87084a1d-8d77-4295-aef4-f6bb957995d1"</span>
+<span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="example-openstack-nova-server-provisioning">Example OpenStack Nova Server provisioning<a class="headerlink" href="#example-openstack-nova-server-provisioning" title="Permanent link">¶</a></h3>
+<p>Example Contributed by Radoslav Gerganov (rgerganov@vmware.com)</p>
+<h4 id="create-server-request">CREATE SERVER REQUEST<a class="headerlink" href="#create-server-request" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="err">POST http://10.26.33.242:8774/v2.1/servers</span>
+<span class="err">Accept: application/json</span>
+<span class="err">User-Agent: python-novaclient</span>
+<span class="err">OpenStack-API-Version: compute 2.35</span>
+<span class="err">X-OpenStack-Nova-API-Version: 2.35</span>
+<span class="err">X-Auth-Token: {SHA1}4c9fd04a28c8b1df81de0689cbda4e2054439132</span>
+<span class="err">Content-Type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">   "server":{</span>
+<span class="err">      "min_count":1,</span>
+<span class="err">      "flavorRef":"1",</span>
+<span class="err">      "name":"fira12",</span>
+<span class="err">      "imageRef":"83872a57-51e1-4546-b26f-bc73ebc5d26e",</span>
+<span class="err">      "max_count":1</span>
+<span class="err">   }</span>
+<span class="err">}</span>
+</code></pre></div>
+<p>RESPONSE:</p>
+<div class="highlight"><pre><span></span><code><span class="err">202 Accepted</span>
+<span class="err">Content-Length: 376</span>
+<span class="err">Location: http://10.26.33.242:8774/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb Content-Type: application/json</span>
+<span class="err">Openstack-Api-Version: compute 2.35</span>
+<span class="err">X-Openstack-Nova-Api-Version: 2.35</span>
+<span class="err">Vary: OpenStack-API-Version, X-OpenStack-Nova-API-Version X-Compute-Request-Id: req-53098894-aad9-4541-96b2-d4e886be88c0</span>
+<span class="err">Date: Tue, 18 Oct 2016 12:13:40 GMT</span>
+<span class="err">Connection: keep-alive</span>
+
+<span class="err">{</span>
+<span class="err">   "server":{</span>
+<span class="err">      "security_groups":[</span>
+<span class="err">         {</span>
+<span class="err">            "name":"default"</span>
+<span class="err">         }</span>
+<span class="err">      ],</span>
+<span class="err">      "OS-DCF:diskConfig":"MANUAL",</span>
+<span class="err">      "id":"b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">      "links":[</span>
+<span class="err">         {</span>
+<span class="err">            "href":"http://10.26.33.242:8774/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">            "rel":"self"</span>
+<span class="err">         },</span>
+<span class="err">         {</span>
+<span class="err">            "href":"http://10.26.33.242:8774/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">            "rel":"bookmark"</span>
+<span class="err">         }</span>
+<span class="err">      ],</span>
+<span class="err">      "adminPass":"4Y3xdtLb8qAN"</span>
+<span class="err">   }</span>
+<span class="err">}</span>
+</code></pre></div>
+<h4 id="poll-server-under-creation">POLL SERVER UNDER CREATION<a class="headerlink" href="#poll-server-under-creation" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="err">GET http://10.26.33.242:8774/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb</span>
+<span class="err">OpenStack-API-Version: compute 2.35</span>
+<span class="err">User-Agent: python-novaclient</span>
+<span class="err">Accept: application/json</span>
+<span class="err">X-OpenStack-Nova-API-Version: 2.35</span>
+<span class="err">X-Auth-Token: {SHA1}4c9fd04a28c8b1df81de0689cbda4e2054439132"</span>
+</code></pre></div>
+<p>RESPONSE:</p>
+<div class="highlight"><pre><span></span><code><span class="err">200 OK</span>
+<span class="err">Content-Length: 1667</span>
+<span class="err">Content-Type: application/json</span>
+<span class="err">Openstack-Api-Version: compute 2.35</span>
+<span class="err">X-Openstack-Nova-Api-Version: 2.35</span>
+<span class="err">Vary: OpenStack-API-Version, X-OpenStack-Nova-API-Version</span>
+<span class="err">X-Compute-Request-Id: req-c87efe63-c714-440e-9eda-951332b4e635</span>
+<span class="err">Date: Tue, 18 Oct 2016 12:13:41 GMT</span>
+<span class="err">Connection: keep-alive</span>
+
+<span class="err">{</span>
+<span class="err">   "server":{</span>
+<span class="err">      "OS-EXT-STS:task_state":"scheduling",</span>
+<span class="err">      "addresses":{</span>
+
+<span class="err">      },</span>
+<span class="err">      "links":[</span>
+<span class="err">         {</span>
+<span class="err">            "href":"http://10.26.33.242:8774/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">            "rel":"self"</span>
+<span class="err">         },</span>
+<span class="err">         {</span>
+<span class="err">            "href":"http://10.26.33.242:8774/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">            "rel":"bookmark"</span>
+<span class="err">         }</span>
+<span class="err">      ],</span>
+<span class="err">      "image":{</span>
+<span class="err">         "id":"83872a57-51e1-4546-b26f-bc73ebc5d26e",</span>
+<span class="err">         "links":[</span>
+<span class="err">            {</span>
+<span class="err">               "href":"http://10.26.33.242:8774/images/83872a57-51e1-4546-b26f-bc73ebc5d26e",</span>
+<span class="err">               "rel":"bookmark"</span>
+<span class="err">            }</span>
+<span class="err">         ]</span>
+<span class="err">      },</span>
+<span class="err">      "OS-EXT-SRV-ATTR:user_data":null,</span>
+<span class="err">      "OS-EXT-STS:vm_state":"building",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:instance_name":"instance-00000001",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:root_device_name":null,</span>
+<span class="err">      "OS-SRV-USG:launched_at":null,</span>
+<span class="err">      "flavor":{</span>
+<span class="err">         "id":"1",</span>
+<span class="err">         "links":[</span>
+<span class="err">            {</span>
+<span class="err">               "href":"http://10.26.33.242:8774/flavors/1",</span>
+<span class="err">               "rel":"bookmark"</span>
+<span class="err">            }</span>
+<span class="err">         ]</span>
+<span class="err">      },</span>
+<span class="err">      "id":"b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">      "security_groups":[</span>
+<span class="err">         {</span>
+<span class="err">            "name":"default"</span>
+<span class="err">         }</span>
+<span class="err">      ],</span>
+<span class="err">      "OS-SRV-USG:terminated_at":null,</span>
+<span class="err">      "os-extended-volumes:volumes_attached":[</span>
+
+<span class="err">      ],</span>
+<span class="err">      "user_id":"5a83b2b6a1114dfc8523aa603a45e115",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:hostname":"fira12",</span>
+<span class="err">      "OS-DCF:diskConfig":"MANUAL",</span>
+<span class="err">      "accessIPv4":"",</span>
+<span class="err">      "accessIPv6":"",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:reservation_id":"r-3t0rugpm",</span>
+<span class="err">      "progress":0,</span>
+<span class="err">      "OS-EXT-STS:power_state":0,</span>
+<span class="err">      "OS-EXT-AZ:availability_zone":"",</span>
+<span class="err">      "metadata":{</span>
+
+<span class="err">      },</span>
+<span class="err">      "status":"BUILD",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:ramdisk_id":"",</span>
+<span class="err">      "updated":"2016-10-18T12:13:41Z",</span>
+<span class="err">      "hostId":"",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:host":null,</span>
+<span class="err">      "description":null,</span>
+<span class="err">      "tags":[</span>
+
+<span class="err">      ],</span>
+<span class="err">      "key_name":null,</span>
+<span class="err">      "OS-EXT-SRV-ATTR:kernel_id":"",</span>
+<span class="err">      "locked":false,</span>
+<span class="err">      "OS-EXT-SRV-ATTR:hypervisor_hostname":null,</span>
+<span class="err">      "name":"fira12",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:launch_index":0,</span>
+<span class="err">      "created":"2016-10-18T12:13:40Z",</span>
+<span class="err">      "tenant_id":"b2ce2b442de94434b7ac40bf733db46a",</span>
+<span class="err">      "host_status":"",</span>
+<span class="err">      "config_drive":""</span>
+<span class="err">   }</span>
+<span class="err">}</span>
+</code></pre></div>
+<h4 id="poll-server-after-provisioning-is-completed">POLL SERVER AFTER PROVISIONING IS COMPLETED<a class="headerlink" href="#poll-server-after-provisioning-is-completed" title="Permanent link">¶</a></h4>
+<div class="highlight"><pre><span></span><code><span class="err">GET http://10.26.33.242:8774/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb</span>
+<span class="err">OpenStack-API-Version: compute 2.35</span>
+<span class="err">User-Agent: python-novaclient</span>
+<span class="err">Accept: application/json</span>
+<span class="err">X-OpenStack-Nova-API-Version: 2.35</span>
+<span class="err">X-Auth-Token: {SHA1}4c9fd04a28c8b1df81de0689cbda4e2054439132"</span>
+</code></pre></div>
+<p>RESPONSE:</p>
+<div class="highlight"><pre><span></span><code><span class="err">200 OK</span>
+<span class="err">Content-Length: 1934</span>
+<span class="err">Content-Type: application/json</span>
+<span class="err">Openstack-Api-Version: compute 2.35</span>
+<span class="err">X-Openstack-Nova-Api-Version: 2.35</span>
+<span class="err">Vary: OpenStack-API-Version, X-OpenStack-Nova-API-Version</span>
+<span class="err">X-Compute-Request-Id: req-7d5eb2a7-b2da-4710-aab1-ab48457daf7d</span>
+<span class="err">Date: Tue, 18 Oct 2016 12:14:53 GMT</span>
+<span class="err">Connection: keep-alive</span>
+
+<span class="err">{</span>
+<span class="err">   "server":{</span>
+<span class="err">      "OS-EXT-STS:task_state":null,</span>
+<span class="err">      "addresses":{</span>
+<span class="err">         "private":[</span>
+<span class="err">            {</span>
+<span class="err">               "OS-EXT-IPS-MAC:mac_addr":"fa:16:3e:5e:04:eb",</span>
+<span class="err">               "version":4,</span>
+<span class="err">               "addr":"10.0.0.2",</span>
+<span class="err">               "OS-EXT-IPS:type":"fixed"</span>
+<span class="err">            }</span>
+<span class="err">         ]</span>
+<span class="err">      },</span>
+<span class="err">      "links":[</span>
+<span class="err">         {</span>
+<span class="err">            "href":"http://10.26.33.242:8774/v2.1/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">            "rel":"self"</span>
+<span class="err">         },</span>
+<span class="err">         {</span>
+<span class="err">            "href":"http://10.26.33.242:8774/servers/b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">            "rel":"bookmark"</span>
+<span class="err">         }</span>
+<span class="err">      ],</span>
+<span class="err">      "image":{</span>
+<span class="err">         "id":"83872a57-51e1-4546-b26f-bc73ebc5d26e",</span>
+<span class="err">         "links":[</span>
+<span class="err">            {</span>
+<span class="err">               "href":"http://10.26.33.242:8774/images/83872a57-51e1-4546-b26f-bc73ebc5d26e",</span>
+<span class="err">               "rel":"bookmark"</span>
+<span class="err">            }</span>
+<span class="err">         ]</span>
+<span class="err">      },</span>
+<span class="err">      "OS-EXT-SRV-ATTR:user_data":null,</span>
+<span class="err">      "OS-EXT-STS:vm_state":"active",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:instance_name":"instance-00000001",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:root_device_name":"/dev/sda",</span>
+<span class="err">      "OS-SRV-USG:launched_at":"2016-10-18T12:14:50.000000",</span>
+<span class="err">      "flavor":{</span>
+<span class="err">         "id":"1",</span>
+<span class="err">         "links":[</span>
+<span class="err">            {</span>
+<span class="err">               "href":"http://10.26.33.242:8774/flavors/1",</span>
+<span class="err">               "rel":"bookmark"</span>
+<span class="err">            }</span>
+<span class="err">         ]</span>
+<span class="err">      },</span>
+<span class="err">      "id":"b85ebd3b-df19-47f7-8116-ce99f00363cb",</span>
+<span class="err">      "security_groups":[</span>
+<span class="err">         {</span>
+<span class="err">            "name":"default"</span>
+<span class="err">         }</span>
+<span class="err">      ],</span>
+<span class="err">      "OS-SRV-USG:terminated_at":null,</span>
+<span class="err">      "os-extended-volumes:volumes_attached":[</span>
+
+<span class="err">      ],</span>
+<span class="err">      "user_id":"5a83b2b6a1114dfc8523aa603a45e115",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:hostname":"fira12",</span>
+<span class="err">      "OS-DCF:diskConfig":"MANUAL",</span>
+<span class="err">      "accessIPv4":"",</span>
+<span class="err">      "accessIPv6":"",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:reservation_id":"r-3t0rugpm",</span>
+<span class="err">      "progress":0,</span>
+<span class="err">      "OS-EXT-STS:power_state":1,</span>
+<span class="err">      "OS-EXT-AZ:availability_zone":"nova",</span>
+<span class="err">      "metadata":{</span>
+
+<span class="err">      },</span>
+<span class="err">      "status":"ACTIVE",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:ramdisk_id":"",</span>
+<span class="err">      "updated":"2016-10-18T12:14:50Z",</span>
+<span class="err">      "hostId":"07493bd1d8cb9abaa5897b2f6f1143d6a1e75951a8ba4414588d5f48",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:host":"sof2-vapi-1-214",</span>
+<span class="err">      "description":null,</span>
+<span class="err">      "tags":[</span>
+
+<span class="err">      ],</span>
+<span class="err">      "key_name":null,</span>
+<span class="err">      "OS-EXT-SRV-ATTR:kernel_id":"",</span>
+<span class="err">      "locked":false,</span>
+<span class="err">      "OS-EXT-SRV-ATTR:hypervisor_hostname":"domain-c7.EB3DD91F-0A06-4068-8B9F-64841FBF9C75",</span>
+<span class="err">      "name":"fira12",</span>
+<span class="err">      "OS-EXT-SRV-ATTR:launch_index":0,</span>
+<span class="err">      "created":"2016-10-18T12:13:40Z",</span>
+<span class="err">      "tenant_id":"b2ce2b442de94434b7ac40bf733db46a",</span>
+<span class="err">      "host_status":"UP",</span>
+<span class="err">      "config_drive":"True"</span>
+<span class="err">   }</span>
+<span class="err">}</span>
+</code></pre></div>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-04-29T07:50:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-04-29</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Workspace ONE APIs" class="md-footer__link md-footer__link--prev" href="../">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Workspace ONE APIs
+              </div>
+</div>
+</a>
+<a aria-label="Next: API Versioning" class="md-footer__link md-footer__link--next" href="../api-versioning/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                API Versioning
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2005-2024 Broadcom. All rights reserved.<br/>
+The term “Broadcom” refers to Broadcom Inc. and/or its subsidiaries.<br/><br/>
+</div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/rcroft-work" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+<a class="md-social__link" href="https://twitter.com/VMware" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8l164.9-188.5L26.8 48h145.6l100.5 132.9L389.2 48zm-24.8 373.8h39.1L151.1 88h-42l255.3 333.8z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.youtube.com/user/vmwaretv" rel="noopener" target="_blank" title="www.youtube.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/vmware" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.facebook.com/vmware" rel="noopener" target="_blank" title="www.facebook.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256z"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.instagram.com/vmware/" rel="noopener" target="_blank" title="www.instagram.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://hub.docker.com/_/photon" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://github.com/rcroft-work" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="m503.5 204.6-.7-1.8-69.7-181.78c-1.4-3.57-3.9-6.59-7.2-8.64-2.4-1.55-5.1-2.515-8-2.81-2.9-.295-5.7.083-8.4 1.11-2.7 1.02-5.1 2.66-7.1 4.78-1.9 2.12-3.3 4.67-4.1 7.44l-47 144H160.8l-47.1-144c-.8-2.77-2.2-5.31-4.1-7.43-2-2.12-4.4-3.75-7.1-4.77a18.1 18.1 0 0 0-8.38-1.113 18.4 18.4 0 0 0-8.04 2.793 18.09 18.09 0 0 0-7.16 8.64L9.267 202.8l-.724 1.8a129.57 129.57 0 0 0-3.52 82c7.747 26.9 24.047 50.7 46.447 67.6l.27.2.59.4 105.97 79.5 52.6 39.7 32 24.2c3.7 1.9 8.3 4.3 13 4.3 4.7 0 9.3-2.4 13-4.3l32-24.2 52.6-39.7 106.7-79.9.3-.3c22.4-16.9 38.7-40.6 45.6-67.5 8.6-27 7.4-55.8-2.6-82z"></path></svg>
+</a>
+<a class="md-social__link" href="https://github.com/rcroft-work" rel="noopener me" target="_blank" title="github.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"></path></svg>
+</a>
+<a class="md-social__link" href="https://slack.com/vmware" rel="noopener" target="_blank" title="slack.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1c0-25.9 21.16-47.06 47.06-47.06h47.06v47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V315.1zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06H164.9zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06H164.9zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06h-47.06V196.9zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06 25.9 0 47.06 21.16 47.06 47.06V196.9zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06-25.9 0-47.06-21.16-47.06-47.06v-47.06h47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06 0-25.9 21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06 0 25.9-21.16 47.06-47.06 47.06H283.1z"></path></svg>
+</a>
+<a class="md-social__link" href="https://discord.com/vmware" rel="noopener" target="_blank" title="discord.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M524.531 69.836a1.5 1.5 0 0 0-.764-.7A485.065 485.065 0 0 0 404.081 32.03a1.816 1.816 0 0 0-1.923.91 337.461 337.461 0 0 0-14.9 30.6 447.848 447.848 0 0 0-134.426 0 309.541 309.541 0 0 0-15.135-30.6 1.89 1.89 0 0 0-1.924-.91 483.689 483.689 0 0 0-119.688 37.107 1.712 1.712 0 0 0-.788.676C39.068 183.651 18.186 294.69 28.43 404.354a2.016 2.016 0 0 0 .765 1.375 487.666 487.666 0 0 0 146.825 74.189 1.9 1.9 0 0 0 2.063-.676A348.2 348.2 0 0 0 208.12 430.4a1.86 1.86 0 0 0-1.019-2.588 321.173 321.173 0 0 1-45.868-21.853 1.885 1.885 0 0 1-.185-3.126 251.047 251.047 0 0 0 9.109-7.137 1.819 1.819 0 0 1 1.9-.256c96.229 43.917 200.41 43.917 295.5 0a1.812 1.812 0 0 1 1.924.233 234.533 234.533 0 0 0 9.132 7.16 1.884 1.884 0 0 1-.162 3.126 301.407 301.407 0 0 1-45.89 21.83 1.875 1.875 0 0 0-1 2.611 391.055 391.055 0 0 0 30.014 48.815 1.864 1.864 0 0 0 2.063.7A486.048 486.048 0 0 0 610.7 405.729a1.882 1.882 0 0 0 .765-1.352c12.264-126.783-20.532-236.912-86.934-334.541ZM222.491 337.58c-28.972 0-52.844-26.587-52.844-59.239s23.409-59.241 52.844-59.241c29.665 0 53.306 26.82 52.843 59.239 0 32.654-23.41 59.241-52.843 59.241Zm195.38 0c-28.971 0-52.843-26.587-52.843-59.239s23.409-59.241 52.843-59.241c29.667 0 53.307 26.82 52.844 59.239 0 32.654-23.177 59.241-52.844 59.241Z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.header", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+<script src="../../js/timeago.min.js"></script>
+<script src="../../js/timeago_mkdocs_material.js"></script>
+<script src="../../js/open_in_new_tab.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>
